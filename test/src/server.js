@@ -13,11 +13,9 @@ const bonfig = {
  clientSecret: process.env.GENIUS_CLIENT_SECRET
 }
 
-app.use(cors())
+// app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
-app.use('/static', express.static(path.join(__dirname, 'public')))
-app.use('/static', express.static(path.join(__dirname, 'src')))
 
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*")
@@ -55,6 +53,8 @@ app.get('/callback', (req, res, next) => {
   })
 })
 
+app.use(express.static(path.resolve(__dirname, '..', 'build')));
+
 app.get('/test', (req, res, next) => {
   let ops = {
     url: 'https://api.genius.com/artists/16775/songs',
@@ -68,7 +68,7 @@ app.get('/test', (req, res, next) => {
     let body = JSON.parse(response.body)
     console.log(body.response.songs)
   })
-  res.sendFile(path.join(__dirname, '../build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', '/build', 'index.html'));
 })
 
 app.listen(9000, () => {
