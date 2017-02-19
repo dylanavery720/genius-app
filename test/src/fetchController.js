@@ -15,13 +15,4 @@ exports.fetchWorld = function (req, res, next) {
     console.log(body.response.songs)
     res.status(200).json(body.response.songs)
   })
-  // res.sendFile(path.join(__dirname, '..', '/build', 'index.html'));
 }
-
-
-
-
-
-
-
-// app.use(express.static(path.resolve(__dirname, '..', 'build')));

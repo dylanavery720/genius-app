@@ -3,3 +3,5 @@ exports.helloworld = function(req, res, next) {
     message: 'hello'
   })
 }
+
+// (function (exports, require, module, __filename, __dirname) { export const helloworld = function(req, res, next)

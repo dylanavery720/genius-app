@@ -7,6 +7,8 @@ const app = express()
 const router = require('./router');
 
 
+// REFACTOR WITHOUT BREAKING SHIT TOMMORROW
+
 const bonfig = {
   clientId: "uY-l55ombZgi1T9IF1Jl5Cb3wGZqw9uC444WRPHPK6TOu6aIFELNvtIZA3HWqngr",
  redirectUri: "http://localhost:9000/test",
@@ -14,64 +16,46 @@ const bonfig = {
  clientSecret: process.env.GENIUS_CLIENT_SECRET
 }
 
-app.use(cors())
 router(app)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
-
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*")
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-//   next()
-// })
 
 app.get('/', (request, response, next) => {
   let authUrl = `https://api.genius.com/oauth/authorize?client_id=${bonfig.clientId}&redirect_uri=${bonfig.redirectUri}&scope=${bonfig.scope}&state=&response_type=code`
   response.redirect(authUrl)
 })
 
-// app.get('/test', (req, res, next) => {
-//   let ops = {
-//     url: 'https://api.genius.com/artists/16775/songs',
-//     headers: {
-//       Authorization: 'Bearer j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM',
-//       Accept: 'application/json',
-//     }
-//   }
-//
-//   let options = {
-//     url: 'https://api.genius.com/oauth/token',
-//     form: {
-//       code: req.query.code,
-//       client_secret: process.env.GENIUS_CLIENT_SECRET,
-//       grant_type: 'authorization_code',
-//       client_id: bonfig.clientId,
-//       redirect_uri: bonfig.redirectUri,
-//       response_type: 'code'
-//     }
-//   }
-//
-//   request.post(options, (error, response) => {
-//     console.log('status code:', response.statusCode)
-//     if (response.statusCode > 399) {
-//       console.log('error', error)
-//     } else {
-//       console.log(response.statusCode)
-//       let body = JSON.parse(response.body)
-//       console.log(body.access_token)
-//     }
-//   })
-//
-//
-// app.use(express.static(path.resolve(__dirname, '..', 'build')));
-//
-//   request.get(ops, (error, response) => {
-//     console.log(error)
-//     let body = JSON.parse(response.body)
-//     console.log(body.response.songs)
-//   })
-//   res.sendFile(path.join(__dirname, '..', '/build', 'index.html'));
-// })
+app.get('/test', (req, res, next) => {
+  let options = {
+    url: 'https://api.genius.com/oauth/token',
+    form: {
+      code: req.query.code,
+      client_secret: process.env.GENIUS_CLIENT_SECRET,
+      grant_type: 'authorization_code',
+      client_id: bonfig.clientId,
+      redirect_uri: bonfig.redirectUri,
+      response_type: 'code'
+    }
+  }
+
+// move this into fetchController andmake access_token dynamic?
+
+  request.post(options, (error, response) => {
+    console.log('status code:', response.statusCode)
+    if (response.statusCode > 399) {
+      console.log('error', error)
+    } else {
+      console.log(response.statusCode)
+      let body = JSON.parse(response.body)
+      console.log(body.access_token)
+    }
+  })
+
+// move this into fetchController andmake access_token dynamic?
+
+app.use(express.static(path.resolve(__dirname, '..', 'build')));
+res.sendFile(path.join(__dirname, '..', '/build', 'index.html'));
+})
 
 app.listen(9000, () => {
   console.log('go to http://localhost:9000/ and authenticate. Your access token will then appear in this console.')
