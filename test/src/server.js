@@ -4,9 +4,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('express-cors')
 const app = express()
-app.set('views', path.join(_dirname, 'views'))
-app.set('view engine', 'jsx')
-app.engine('jsx', require('express-react-view')).createEngine())
 
 const bonfig = {
   clientId: "uY-l55ombZgi1T9IF1Jl5Cb3wGZqw9uC444WRPHPK6TOu6aIFELNvtIZA3HWqngr",
@@ -30,7 +27,41 @@ app.get('/', (request, response, next) => {
   response.redirect(authUrl)
 })
 
-app.get('/callback', (req, res, next) => {
+// app.get('/test', (req, res, next) => {
+//   let options = {
+//     url: 'https://api.genius.com/oauth/token',
+//     form: {
+//       code: req.query.code,
+//       client_secret: process.env.GENIUS_CLIENT_SECRET,
+//       grant_type: 'authorization_code',
+//       client_id: bonfig.clientId,
+//       redirect_uri: bonfig.redirectUri,
+//       response_type: 'code'
+//     }
+//   }
+//
+//   request.post(options, (error, response) => {
+//     console.log('status code:', response.statusCode)
+//     if (response.statusCode > 399) {
+//       console.log('error', error)
+//     } else {
+//       console.log(response.statusCode)
+//       let body = JSON.parse(response.body)
+//       console.log(body.access_token)
+//     }
+//   })
+// })
+//
+// app.use(express.static(path.resolve(__dirname, '..', 'build')));
+
+app.get('/test', (req, res, next) => {
+  let ops = {
+    url: 'https://api.genius.com/artists/16775/songs',
+    headers: {
+      Authorization: 'Bearer j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM',
+      Accept: 'application/json',
+    }
+  }
   let options = {
     url: 'https://api.genius.com/oauth/token',
     form: {
@@ -53,18 +84,10 @@ app.get('/callback', (req, res, next) => {
       console.log(body.access_token)
     }
   })
-})
+
 
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-app.get('/test', (req, res, next) => {
-  let ops = {
-    url: 'https://api.genius.com/artists/16775/songs',
-    headers: {
-      Authorization: 'Bearer j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM',
-      Accept: 'application/json',
-    }
-  }
   request.get(ops, (error, response) => {
     console.log(error)
     let body = JSON.parse(response.body)
