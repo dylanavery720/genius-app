@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.body-mask {
+  background-color: #E74E0B;
+  opacity: 0.4;
+  height: 1500px;;
+  width: 100%;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
