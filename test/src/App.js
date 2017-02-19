@@ -6,6 +6,9 @@ import './App.css';
 class App extends Component {
   constructor() {
     super()
+    this.state = {
+      data: ''
+    }
   }
 
   componentDidMount() {
@@ -17,7 +20,7 @@ class App extends Component {
     console.log('working')
       fetch('http://localhost:9000/api/helloworld')
       .then(response => response.json())
-      .then(data => console.log(data.message))
+      .then(data => this.setState({data: data.message}))
   }
   render() {
     return (
@@ -27,7 +30,7 @@ class App extends Component {
           <h2>Rap Genius Genius</h2>
         </div>
         <div className='body-mask'>
-        <p className="App-intro"></p>
+        {this.state.data && <p className="App-intro">{this.state.data}</p>}
         </div>
         <div className="App-footer"></div>
       </div>
