@@ -4,6 +4,21 @@ import './Reset.css'
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super()
+  }
+
+  componentDidMount() {
+    console.log('mounting')
+    this.fetcher()
+  }
+
+  fetcher() {
+    console.log('working')
+      fetch('http://localhost:9000/api/helloworld')
+      .then(response => response.json())
+      .then(data => console.log(data.message))
+  }
   render() {
     return (
       <div className="App">
@@ -12,7 +27,7 @@ class App extends Component {
           <h2>Rap Genius Genius</h2>
         </div>
         <div className='body-mask'>
-        <p className="App-intro">Hello World</p>
+        <p className="App-intro"></p>
         </div>
         <div className="App-footer"></div>
       </div>
