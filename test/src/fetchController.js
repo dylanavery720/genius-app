@@ -9,19 +9,11 @@ exports.fetchWorld = function (req, res, next) {
       Accept: 'application/json',
     }
   }
+
   request.get(ops, (error, response) => {
     console.log(error)
     let body = JSON.parse(response.body)
     console.log(body.response.songs)
     res.status(200).json(body.response.songs)
   })
-  // res.sendFile(path.join(__dirname, '..', '/build', 'index.html'));
 }
-
-
-
-
-
-
-
-// app.use(express.static(path.resolve(__dirname, '..', 'build')));
