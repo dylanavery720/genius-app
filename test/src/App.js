@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './record1.png';
+import './Reset.css'
 import './App.css';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
         <div className='body-mask'>
         <p className="App-intro">Hello World</p>
         </div>
+        <div className="App-footer"></div>
       </div>
     );
   }
