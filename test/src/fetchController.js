@@ -9,6 +9,7 @@ exports.fetchWorld = function (req, res, next) {
       Accept: 'application/json',
     }
   }
+
   request.get(ops, (error, response) => {
     console.log(error)
     let body = JSON.parse(response.body)

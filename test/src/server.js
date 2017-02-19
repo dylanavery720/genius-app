@@ -2,14 +2,13 @@ const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
 const path = require('path');
-const cors = require('cors')
 const app = express()
 const router = require('./router');
 
 
 // REFACTOR WITHOUT BREAKING SHIT TOMMORROW
 
-const bonfig = {
+const oauth = {
   clientId: "uY-l55ombZgi1T9IF1Jl5Cb3wGZqw9uC444WRPHPK6TOu6aIFELNvtIZA3HWqngr",
  redirectUri: "http://localhost:9000/test",
  scope: "vote create_annotation manage_annotation me",
@@ -21,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
 app.get('/', (request, response, next) => {
-  let authUrl = `https://api.genius.com/oauth/authorize?client_id=${bonfig.clientId}&redirect_uri=${bonfig.redirectUri}&scope=${bonfig.scope}&state=&response_type=code`
+  let authUrl = `https://api.genius.com/oauth/authorize?client_id=${oauth.clientId}&redirect_uri=${oauth.redirectUri}&scope=${oauth.scope}&state=&response_type=code`
   response.redirect(authUrl)
 })
 
@@ -32,8 +31,8 @@ app.get('/test', (req, res, next) => {
       code: req.query.code,
       client_secret: process.env.GENIUS_CLIENT_SECRET,
       grant_type: 'authorization_code',
-      client_id: bonfig.clientId,
-      redirect_uri: bonfig.redirectUri,
+      client_id: oauth.clientId,
+      redirect_uri: oauth.redirectUri,
       response_type: 'code'
     }
   }
