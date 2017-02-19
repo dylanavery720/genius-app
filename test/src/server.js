@@ -27,33 +27,6 @@ app.get('/', (request, response, next) => {
   response.redirect(authUrl)
 })
 
-// app.get('/test', (req, res, next) => {
-//   let options = {
-//     url: 'https://api.genius.com/oauth/token',
-//     form: {
-//       code: req.query.code,
-//       client_secret: process.env.GENIUS_CLIENT_SECRET,
-//       grant_type: 'authorization_code',
-//       client_id: bonfig.clientId,
-//       redirect_uri: bonfig.redirectUri,
-//       response_type: 'code'
-//     }
-//   }
-//
-//   request.post(options, (error, response) => {
-//     console.log('status code:', response.statusCode)
-//     if (response.statusCode > 399) {
-//       console.log('error', error)
-//     } else {
-//       console.log(response.statusCode)
-//       let body = JSON.parse(response.body)
-//       console.log(body.access_token)
-//     }
-//   })
-// })
-//
-// app.use(express.static(path.resolve(__dirname, '..', 'build')));
-
 app.get('/test', (req, res, next) => {
   let ops = {
     url: 'https://api.genius.com/artists/16775/songs',
@@ -62,6 +35,7 @@ app.get('/test', (req, res, next) => {
       Accept: 'application/json',
     }
   }
+
   let options = {
     url: 'https://api.genius.com/oauth/token',
     form: {
