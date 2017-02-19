@@ -4,6 +4,24 @@ import './Reset.css'
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      data: ''
+    }
+  }
+
+  componentDidMount() {
+    console.log('mounting')
+    this.fetcher()
+  }
+
+  fetcher() {
+    console.log('working')
+      fetch('http://localhost:9000/api/helloworld')
+      .then(response => response.json())
+      .then(data => this.setState({data: data.message}))
+  }
   render() {
     return (
       <div className="App">
@@ -12,7 +30,7 @@ class App extends Component {
           <h2>Rap Genius Genius</h2>
         </div>
         <div className='body-mask'>
-        <p className="App-intro">Hello World</p>
+        {this.state.data && <p className="App-intro">{this.state.data}</p>}
         </div>
         <div className="App-footer"></div>
       </div>

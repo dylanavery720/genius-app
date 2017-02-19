@@ -13,7 +13,7 @@ exports.fetchWorld = function (req, res, next) {
   request.get(ops, (error, response) => {
     console.log(error)
     let body = JSON.parse(response.body)
-    console.log(body.response.songs)
+    // console.log(body.response.songs)
     res.status(200).json(body.response.songs)
   })
 }
