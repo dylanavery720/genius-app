@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('express-cors')
 const app = express()
-
+app.set('views', path.join(_dirname, 'views'))
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-view')).createEngine())
 
 const bonfig = {
   clientId: "uY-l55ombZgi1T9IF1Jl5Cb3wGZqw9uC444WRPHPK6TOu6aIFELNvtIZA3HWqngr",
