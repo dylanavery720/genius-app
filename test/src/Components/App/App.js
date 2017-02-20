@@ -17,20 +17,20 @@ class App extends Component {
     this.fetcher()
   }
 
- loadSongs() {
-   return this.state.payload.map((song, i) => {
-      return (
-   <li className='card' key={i}>
-      <img src={song.result.song_art_image_thumbnail_url}/>
-      <h1>{song.result.full_title}</h1>
-   </li>
-      )
-    })
- }
+ // loadSongs() {
+ //   return this.state.payload.map((song, i) => {
+ //      return (
+ //   <li className='card' key={i}>
+ //      <img src={song.result.song_art_image_thumbnail_url}/>
+ //      <h1>{song.result.full_title}</h1>
+ //   </li>
+ //      )
+ //    })
+ // }
 
   fetcher() {
     console.log('working')
-      fetch('http://localhost:9000/api/test')
+      fetch('https://api.genius.com/search?access_token=j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM&q=jonwayne?')
       .then(response => response.json())
       .then(data => this.setState({payload: data, title: data.full_title, image: data.song_art_image_thumbnail_url}))
   }
@@ -43,7 +43,7 @@ class App extends Component {
           <h2>Rap Genius Genius</h2>
         </div>
         <div className='body-mask'>
-        {this.loadSongs()}
+        {/* {this.loadSongs()} */}
         {/* {this.state.title && <p className="App-intro">{this.state.title}</p>}
         {this.state.image && <img src={this.state.image} className="G-pic" alt="logo" />} */}
         </div>
