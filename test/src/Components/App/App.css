@@ -3,6 +3,14 @@ h2 {
   margin-top: 15px;
 }
 
+h1 {
+  color: black;
+}
+
+li {
+  width: 33%;
+  display: inline-block;
+}
 .App {
   text-align: center;
 }

@@ -22,14 +22,26 @@ class App extends Component {
   }
 
  loadSongs() {
+   if(this.state.search.length < 1) {
    return this.state.payload.map((song, i) => {
       return (
    <li className='card' key={i}>
       <img alt='alt' src={song.result.song_art_image_thumbnail_url}/>
-      <h1>{song.result.full_title}</h1>
+      <a href="`https://genius.com/${song.result.path}`">{song.result.full_title}</a>
    </li>
       )
     })
+  } else {
+    return this.state.search.map((song, i) => {
+      let songPath = `https://genius.com/${song.result.path}`
+       return (
+    <li className='card' key={i}>
+       <img alt='alt' src={song.result.song_art_image_thumbnail_url}/>
+       <a href={songPath} target="_blank">{song.result.full_title}</a>
+    </li>
+       )
+     })
+  }
  }
 
   fetcher(e) {
@@ -43,7 +55,7 @@ class App extends Component {
     console.log('working')
       fetch(`https://api.genius.com/search?access_token=j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM&q=${this.state.draftMessage}`)
       .then(response => response.json())
-      .then(data => this.setState({search: data}))
+      .then(data => this.setState({search: data.response.hits}))
   }
 
   updateSearch(e) {
@@ -59,12 +71,12 @@ class App extends Component {
           <input onChange={e => this.updateSearch(e)}></input>
           <button onClick={this.search}>Click</button>
         </div>
-        <div className='body-mask'>
         <button id="jonwayne" onClick={e => this.fetcher(e)}>Jonwayne</button>
         <button id='kanyewest' onClick={e => this.fetcher(e)}>Kanye</button>
         <button id='lupefiasco' onClick={e => this.fetcher(e)}>Lupe</button>
         <button id='schoolboyq' onClick={e => this.fetcher(e)}>ScHoolboyQ</button>
         <button id='nipseyhussle' onClick={e => this.fetcher(e)}>Nipsey</button>
+        <div className='body-mask'>
         {this.loadSongs()}
         {/* {this.state.title && <p className="App-intro">{this.state.title}</p>}
         {this.state.image && <img src={this.state.image} className="G-pic" alt="logo" />} */}
