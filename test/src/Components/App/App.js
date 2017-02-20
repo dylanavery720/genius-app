@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.fetcher()
+    this.fetcher()
   }
 
  loadSongs() {
@@ -34,7 +34,7 @@ class App extends Component {
 
   fetcher() {
     console.log('working')
-      fetch('http://localhost9000/api/test')
+      fetch('http://localhost:9000/api/test')
       .then(response => response.json())
       .then(data => this.setState({payload: data}))
   }
@@ -60,7 +60,7 @@ class App extends Component {
           <button onClick={this.search}>Click</button>
         </div>
         <div className='body-mask'>
-        {/* {this.loadSongs()} */}
+        {this.loadSongs()}
         {/* {this.state.title && <p className="App-intro">{this.state.title}</p>}
         {this.state.image && <img src={this.state.image} className="G-pic" alt="logo" />} */}
         </div>
