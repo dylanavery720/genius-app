@@ -7,22 +7,34 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      payload: [],
       title: '',
       image: ''
     }
   }
 
   componentDidMount() {
-    console.log('mounting')
     this.fetcher()
   }
+
+ loadSongs() {
+   return this.state.payload.map((song, i) => {
+      return (
+   <li className='card' key={i}>
+      <img src={song.result.song_art_image_thumbnail_url}/>
+      <h1>{song.result.full_title}</h1>
+   </li>
+      )
+    })
+ }
 
   fetcher() {
     console.log('working')
       fetch('http://localhost:9000/api/test')
       .then(response => response.json())
-      .then(data => this.setState({title: data.full_title, image: data.song_art_image_thumbnail_url}))
+      .then(data => this.setState({payload: data, title: data.full_title, image: data.song_art_image_thumbnail_url}))
   }
+
   render() {
     return (
       <div className="App">
@@ -31,8 +43,9 @@ class App extends Component {
           <h2>Rap Genius Genius</h2>
         </div>
         <div className='body-mask'>
-        {this.state.title && <p className="App-intro">{this.state.title}</p>}
-        {this.state.image && <img src={this.state.image} className="G-pic" alt="logo" />}
+        {this.loadSongs()}
+        {/* {this.state.title && <p className="App-intro">{this.state.title}</p>}
+        {this.state.image && <img src={this.state.image} className="G-pic" alt="logo" />} */}
         </div>
         <div className="App-footer"></div>
       </div>
