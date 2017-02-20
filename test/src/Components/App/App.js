@@ -32,9 +32,9 @@ class App extends Component {
     })
  }
 
-  fetcher() {
+  fetcher(e) {
     console.log('working')
-      fetch('http://localhost:9000/api/test')
+      fetch(`http://localhost:9000/api/${e.target.id}`)
       .then(response => response.json())
       .then(data => this.setState({payload: data}))
   }
@@ -60,6 +60,11 @@ class App extends Component {
           <button onClick={this.search}>Click</button>
         </div>
         <div className='body-mask'>
+        <button id="jonwayne" onClick={e => this.fetcher(e)}>Jonwayne</button>
+        <button id='kanyewest' onClick={e => this.fetcher(e)}>Kanye</button>
+        <button id='lupefiasco' onClick={e => this.fetcher(e)}>Lupe</button>
+        <button id='schoolboyq' onClick={e => this.fetcher(e)}>ScHoolboyQ</button>
+        <button id='nipseyhussle' onClick={e => this.fetcher(e)}>Nipsey</button>
         {this.loadSongs()}
         {/* {this.state.title && <p className="App-intro">{this.state.title}</p>}
         {this.state.image && <img src={this.state.image} className="G-pic" alt="logo" />} */}
