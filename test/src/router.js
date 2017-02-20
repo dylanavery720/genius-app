@@ -4,7 +4,6 @@ const fetchController = require('./Controllers/fetchController');
 
 module.exports = function(app) {
   const apiRoutes = express.Router();
-
   apiRoutes.get('/helloworld', controller.helloworld)
   apiRoutes.get('/test', fetchController.fetchWorld)
 
