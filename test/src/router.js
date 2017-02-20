@@ -1,6 +1,6 @@
 const express = require('express');
-const controller = require('./controller');
-const fetchController = require('./fetchController');
+const controller = require('./Controllers/controller');
+const fetchController = require('./Controllers/fetchController');
 
 module.exports = function(app) {
   const apiRoutes = express.Router();
