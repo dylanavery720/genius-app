@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // export class SongCards extends Component = (props) => {
-export class SongCards extends Component {
+export default class SongCards extends Component {
 
   loadSongs() {
     if(this.props.popularSongs.length < 1) {

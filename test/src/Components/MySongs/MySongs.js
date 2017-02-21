@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class MySongs extends Component {
+export default class MySongs extends Component {
 
   fetcher(e) {
     console.log('working')
