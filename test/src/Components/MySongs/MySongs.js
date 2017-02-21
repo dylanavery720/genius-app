@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-export class SongCards extends Component = (props) => {
+export class MySongs extends Component {
 
   fetcher(e) {
     console.log('working')
       fetch(`http://localhost:9000/api/${e.target.id}`)
       .then(response => response.json())
-      .then(data => this.props.displayPopular(data)))
+      .then(data => this.props.displayPopular(data))
   }
 
   render() {

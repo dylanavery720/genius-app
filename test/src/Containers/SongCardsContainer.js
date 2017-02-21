@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { displayPopular } from '../actions'
-import SongCards from '../components/SongCards/SongCards'
+import { displayPopular } from '../Actions/index.js'
+import SongCards from '../Components/SongCards/SongCards'
 
 const mapStateToProps = (state) => {
   return { popularSongs: state.popularSongs, searchedSongs: state.searchedSongs }

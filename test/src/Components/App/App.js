@@ -3,7 +3,7 @@ import logo from '../../record1.png';
 import '../../Reset.css'
 import './App.css';
 import '../MySongs/MySongs'
-import * from './Actions'
+import { displaySearched } from '../../Actions/index.js'
 
 class App extends Component {
   constructor() {
@@ -55,9 +55,11 @@ class App extends Component {
 
   search() {
     console.log('working')
+    return (dispatch) => {
       fetch(`https://api.genius.com/search?access_token=j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM&q=${this.state.draftMessage}`)
       .then(response => response.json())
       .then(data => dispatch(displaySearched(this.state.draftMessage, data)))
+    }
   }
 
   updateSearch(e) {
