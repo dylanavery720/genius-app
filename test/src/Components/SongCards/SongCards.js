@@ -5,11 +5,7 @@ export default class SongCards extends Component {
   loadSongs() {
         return (
           <div>
-          <img alt='alt' id="card-image" src={this.props.searchedSongs.artist.image_url}/>
-          {/* <p>{this.props.searchedSongs.artist.annotations.}</p> */}
-          {this.props.searchedSongs.artist.alternate_names.map(name => {
-            return <h1>{name}</h1>
-          })}
+          <iframe src="//player.vimeo.com/video/68866759" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
           </div>
         )
    }
