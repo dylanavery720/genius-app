@@ -17,6 +17,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
+app.use(function(req, res, next) { res.header('Access-Control-Allow-Origin', "*"); res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE'); res.header('Access-Control-Allow-Headers', 'Content-Type'); next();
+})
+
 app.get('/test', (request, response, next) => {
   let authUrl = `https://api.genius.com/oauth/authorize?client_id=${oauth.clientId}&redirect_uri=${oauth.redirectUri}&scope=${oauth.scope}&state=&response_type=code`
   response.redirect(authUrl)
