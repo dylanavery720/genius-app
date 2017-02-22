@@ -5,6 +5,7 @@ import './App.css';
 import '../MySongs/MySongs';
 import { displaySearched } from '../../Actions/index.js';
 import { Link, browserHistory } from 'react-router';
+import store from '../../index.js'
 
 class App extends Component {
   constructor() {
@@ -17,11 +18,10 @@ class App extends Component {
   }
 
   search() {
-
       fetch(`https://api.genius.com/search?access_token=j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM&q=${this.state.draftMessage}`)
       .then(response => response.json())
       .then(data => data.response.hits)
-      .then(payload => displaySearched(this.state.draftMessage, payload))
+      .then(payload => this.props.displaySearched(this.state.draftMessage, payload))
     browserHistory.push('/songcards')
   }
 
