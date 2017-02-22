@@ -2,15 +2,16 @@ const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
 const path = require('path');
-const app = express();
+const app = express()
 const router = require('./router');
-const ReactDOMServer = require('react-dom/server');
-const createStore = require('redux');
-const Provider  =  require('react-redux');
-const songs = require('./Reducers/songs-reducer');
-const MySongsContainer = require('./Containers/MySongsContainer');
-const SongCardsContainer = require('./Containers/SongCardsContainer');
-const routes = require('./index.js');
+import { renderToString } from 'react-dom/server'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import songs from './Reducers/songs-reducer'
+import routes from './index.js';
+import './index.css';
+import MySongsContainer from './Containers/MySongsContainer'
+import SongCardsContainer from './Containers/SongCardsContainer'
 
 const oauth = {
   clientId: "uY-l55ombZgi1T9IF1Jl5Cb3wGZqw9uC444WRPHPK6TOu6aIFELNvtIZA3HWqngr",
@@ -22,18 +23,17 @@ app.use(handleRender)
 router(app)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
-
 function handleRender(req, res) {
  const store = createStore(songs)
- const html = ReactDOMServer.renderToString(
-  routes
+ const html = renderToString(
+   routes
  )
  const preloadedState = store.getState()
  res.send(renderFullPage(html, preloadedState))
 }
-
 function renderFullPage(html, preloadedState) {
-  return `<!doctype html>
+  return
+  <!doctype html>
 <html>
   <head>
     <title>Rap Genius Genius</title>
@@ -45,8 +45,7 @@ function renderFullPage(html, preloadedState) {
     </script>
     <script src="/static/bundle.js"></script>
   </body>
-</html>`
-
+</html>
 }
 
 app.get('/', (request, response, next) => {

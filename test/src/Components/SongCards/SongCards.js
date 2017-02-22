@@ -16,10 +16,13 @@ export default class SongCards extends Component {
      return this.props.searchedSongs.map((song, i) => {
        let songPath = `https://genius.com/${song.result.path}`
         return (
+          <div>
+              <h1>HEY RENDER</h1>
         <li className='card' key={i}>
           <img alt='alt' src={song.result.song_art_image_thumbnail_url}/>
           <a href={songPath} target="_blank">{song.result.full_title}</a>
         </li>
+        </div>
         )
       })
    }
