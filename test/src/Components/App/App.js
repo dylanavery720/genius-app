@@ -11,11 +11,19 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      draftMessage: ''
+      draftMessage: '',
+      access_token: ''
     }
     this.search = this.search.bind(this)
     this.artistSearch = this.artistSearch.bind(this)
     this.updateSearch = this.updateSearch.bind(this)
+    this.fetchToken = this.fetchToken.bind(this)
+  }
+
+  fetchToken() {
+    fetch('http://localhost:9000/api/key')
+    .then(response => response.json())
+    .then(data => this.setState({access_token: data}))
   }
 
   search(id) {
@@ -37,10 +45,13 @@ class App extends Component {
     this.setState({draftMessage: e.target.value})
   }
 
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
+          <a href="http://localhost:9000/test">Login</a>
+          <button onClick={this.fetchToken}>Get Access Token</button>
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Rap Genius Genius</h2>
           <input onChange={e => this.updateSearch(e)}></input>

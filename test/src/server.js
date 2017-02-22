@@ -3,7 +3,6 @@ const request = require('request');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express()
-const router = require('./router');
 
 const oauth = {
   clientId: "uY-l55ombZgi1T9IF1Jl5Cb3wGZqw9uC444WRPHPK6TOu6aIFELNvtIZA3HWqngr",
@@ -12,13 +11,12 @@ const oauth = {
  clientSecret: process.env.GENIUS_CLIENT_SECRET
 }
 
-router(app)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-app.use(function(req, res, next) { res.header('Access-Control-Allow-Origin', "*"); res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE'); res.header('Access-Control-Allow-Headers', 'Content-Type'); next();
-})
+// app.use(function(req, res, next) { res.header('Access-Control-Allow-Origin', "*"); res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE'); res.header('Access-Control-Allow-Headers', 'Content-Type'); next();
+// })
 
 app.get('/test', (request, response, next) => {
   let authUrl = `https://api.genius.com/oauth/authorize?client_id=${oauth.clientId}&redirect_uri=${oauth.redirectUri}&scope=${oauth.scope}&state=&response_type=code`
