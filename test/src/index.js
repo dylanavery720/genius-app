@@ -15,9 +15,9 @@ import songs from './Reducers/songs-reducer'
 // import user from './reducers/user-reducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const preloadedState = window.__PRELOADED_STATE__
+const preloadedState = window.__PRELOADED_STATE__;
 
-delete window.__PRELOADED_STATE__
+delete window.__PRELOADED_STATE__;
 
 const store = createStore(
   combineReducers({ songs }),
