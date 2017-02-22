@@ -5,7 +5,7 @@ export default class SongCards extends Component {
   loadSongs() {
         return (
           <div>
-          <img alt='alt' src={this.props.searchedSongs.artist.image_url}/>
+          <img alt='alt' id="card-image" src={this.props.searchedSongs.artist.image_url}/>
           {/* <p>{this.props.searchedSongs.artist.annotations.}</p> */}
           {this.props.searchedSongs.artist.alternate_names.map(name => {
             return <h1>{name}</h1>

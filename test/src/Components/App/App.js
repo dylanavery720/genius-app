@@ -51,9 +51,9 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <a href="http://localhost:9000/test">Login</a>
-          <button onClick={this.fetchToken}>Get Access Token</button>
+          {<button id="at" onClick={this.fetchToken}>Get Access Token</button>}
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Rap Genius Genius</h2>
+          <h2>WriterFavez</h2>
           <input onChange={e => this.updateSearch(e)}></input>
           <button onClick={this.artistSearch}>Click</button>
         </div>
