@@ -14,11 +14,12 @@ class App extends Component {
       draftMessage: ''
     }
     this.search = this.search.bind(this)
+    this.artistSearch = this.artistSearch.bind(this)
     this.updateSearch = this.updateSearch.bind(this)
   }
 
   search(id) {
-      fetch(`https://api.genius.com/artists/72?access_token=j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM&q`)
+      fetch(`https://api.genius.com/artists/${id}?access_token=j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM&q`)
       .then(response => response.json())
       .then(data => data.response)
       .then(payload => this.props.displaySearched(this.state.draftMessage, payload))
@@ -28,7 +29,7 @@ class App extends Component {
   artistSearch() {
     fetch(`https://api.genius.com/search?access_token=j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM&q=${this.state.draftMessage}`)
     .then(response => response.json())
-    .then(data => data.response.hits[0].primary_artist.id)
+    .then(data => data.response.hits[0].result.primary_artist.id)
     .then(payload => this.search(payload))
   }
 
@@ -43,7 +44,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Rap Genius Genius</h2>
           <input onChange={e => this.updateSearch(e)}></input>
-          <button onClick={this.search}>Click</button>
+          <button onClick={this.artistSearch}>Click</button>
         </div>
         {this.props.children}
         <div className="App-footer"></div>
