@@ -23,7 +23,7 @@ class App extends Component {
   fetchToken() {
     fetch('http://localhost:9000/api/key')
     .then(response => response.json())
-    .then(data => this.setState({access_token: data}))
+    .then(data => this.setState({access_token: data.data.access_token}))
   }
 
   search(id) {
