@@ -9,7 +9,7 @@ export default class SongCards extends Component {
           {shortArray.map((songs, i) => {
             let str = songs.uri
             let newStr = str.slice(0,6) + str.slice(7, str.length)
-          return    <li><iframe src={`//player.vimeo.com${newStr}`} width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></li>
+          return    <li key={i}><iframe src={`//player.vimeo.com${newStr}`} width="480" height="270"></iframe></li>
           })}
           </div>
         )
@@ -19,7 +19,7 @@ export default class SongCards extends Component {
   render() {
     const {searchedSongs} = this.props
   return (
-      <div className='body-mask'>
+      <div>
       <ul>
       {this.loadSongs()}
       </ul>

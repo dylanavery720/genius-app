@@ -14,29 +14,22 @@ a:hover {
 }
 
 h2 {
+  color: black;
+  display: block;
+  text-align: center;
+  font-family: 'Sriracha', cursive;
+  font-size: 24px;
+  color: salmon;
   margin: 15px;
 }
 
-.mdl-textfield__input {
-    border: 1px solid salmon;
-    border-bottom: 1px solid salmon;
-    display: inline-block;
-    font-size: 16px;
-    font-family: "Helvetica","Arial",sans-serif;
-    margin: 10px;
-    padding: 4px 0;
-    width: 33%;
-    background: 0 0;
-    text-align: left;
-    color: inherit;
-}
 
 h1 {
   color: black;
   display: block;
   text-align: center;
   font-family: 'Sriracha', cursive;
-  font-size: 24px;
+  font-size: 44px;
   color: salmon;
   margin: 15px;
 }
@@ -73,7 +66,6 @@ li {
 
 .App-header {
   background-color: #222;
-  height: 150px;
   padding: 20px;
   color: white;
 }
@@ -93,4 +85,18 @@ li {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.mdl-textfield__input {
+  border: 1px solid salmon;
+  border-bottom: 1px solid salmon;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Helvetica","Arial",sans-serif;
+  margin: 10px;
+  padding: 4px 0;
+  width: 33%;
+  background: 0 0;
+  text-align: left;
+  color: inherit;
 }
