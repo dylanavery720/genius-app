@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pattaya|Sriracha');
+@import url('https://fonts.googleapis.com/css?family=Pattaya|Atma');
 
 a {
   float: left;
@@ -18,7 +18,7 @@ h2 {
   color: black;
   display: block;
   text-align: center;
-  font-family: 'Sriracha', cursive;
+  font-family: 'Atma', cursive;
   font-size: 24px;
   color: salmon;
   margin: 15px;
@@ -28,7 +28,7 @@ h1 {
   color: black;
   display: block;
   text-align: center;
-  font-family: 'Sriracha', cursive;
+  font-family: 'Atma', cursive;
   font-size: 44px;
   color: salmon;
   margin: 15px;
