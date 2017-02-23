@@ -3,62 +3,38 @@ const request = require('request');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express()
-const router = require('./router');
-import { renderToString } from 'react-dom/server'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import songs from './Reducers/songs-reducer'
-import routes from './index.js';
-import './index.css';
-import MySongsContainer from './Containers/MySongsContainer'
-import SongCardsContainer from './Containers/SongCardsContainer'
 
 const oauth = {
-  clientId: "uY-l55ombZgi1T9IF1Jl5Cb3wGZqw9uC444WRPHPK6TOu6aIFELNvtIZA3HWqngr",
- redirectUri: "http://localhost:9000/test",
+  clientId: "50c84f82fb4ac0e63c1b94c968aea70558738f33",
+ redirectUri: "http://localhost:9000/callback",
  scope: "vote create_annotation manage_annotation me",
- clientSecret: process.env.GENIUS_CLIENT_SECRET
-}
-app.use(handleRender)
-router(app)
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
-function handleRender(req, res) {
- const store = createStore(songs)
- const html = renderToString(
-   routes
- )
- const preloadedState = store.getState()
- res.send(renderFullPage(html, preloadedState))
-}
-function renderFullPage(html, preloadedState) {
-  return
-  <!doctype html>
-<html>
-  <head>
-    <title>Rap Genius Genius</title>
-  </head>
-  <body>
-    <div id="root">${html}</div>
-    <script>
-      window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
-    </script>
-    <script src="/static/bundle.js"></script>
-  </body>
-</html>
+ clientSecret: process.env.VIMEO_CLIENT_SECRET
 }
 
-app.get('/', (request, response, next) => {
-  let authUrl = `https://api.genius.com/oauth/authorize?client_id=${oauth.clientId}&redirect_uri=${oauth.redirectUri}&scope=${oauth.scope}&state=&response_type=code`
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+app.use(express.static(path.resolve(__dirname, '..', 'build')));
+
+// app.use(function(req, res, next) { res.header('Access-Control-Allow-Origin', "*"); res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE'); res.header('Access-Control-Allow-Headers', 'Content-Type'); next();
+// })
+
+// KMjW6p2aO3UI/yR7+C8fO9YFYeVRSfl4c9zK4fZWPOb5pmqS9gG8rtpO8Ntw91d8hJ5w1JZdP1HWdK4PxIiwDP0aU0dPhy/8VKja9G02t835aWHaXArrWowLr8i9WtGq
+
+
+
+
+app.get('/test', (request, response, next) => {
+  let authUrl = `https://api.vimeo.com/oauth/authorize?client_id=${oauth.clientId}&response_type=code&redirect_uri=${oauth.redirectUri}&state=90059`
   response.redirect(authUrl)
 })
 
-app.get('/test', (req, res, next) => {
+var apiKey;
+app.get('/callback', (req, res, next) => {
   let options = {
-    url: 'https://api.genius.com/oauth/token',
+    url: 'https://api.vimeo.com/oauth/access_token',
     form: {
       code: req.query.code,
-      client_secret: process.env.GENIUS_CLIENT_SECRET,
+      client_secret: process.env.VIMEO_CLIENT_SECRET,
       grant_type: 'authorization_code',
       client_id: oauth.clientId,
       redirect_uri: oauth.redirectUri,
@@ -67,25 +43,33 @@ app.get('/test', (req, res, next) => {
   }
 
 // move this into fetchController andmake access_token dynamic?
-
+  //
   request.post(options, (error, response) => {
     console.log('status code:', response.statusCode)
     if (response.statusCode > 399) {
       console.log('error', error)
     } else {
       console.log(response.statusCode)
-      let body = JSON.parse(response.body)
-      console.log(body.access_token)
+      console.log(response.body.access_token)
+      apiKey = JSON.parse(response.body)
+      console.log(apiKey.access_token)
     }
   })
 
 // move this into fetchController andmake access_token dynamic?
-
-app.use(express.static(path.resolve(__dirname, '..', 'build')));
-res.sendFile(path.join(__dirname, '..', '/build', 'index.html'));
+  res.redirect('/')
 })
-app.get('*', (req,res) => {
+
+app.get('/api/key', (req, res) => {
+  res.status(200).json({
+    message: 'hello',
+    data: apiKey
+  })
+})
+
+app.get('/*', (req, res) => {
    res.sendFile(path.join(__dirname, '..', '/build', 'index.html'))
+
  })
 app.listen(9000, () => {
   console.log('go to http://localhost:9000/ and authenticate. Your access token will then appear in this console.')

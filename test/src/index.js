@@ -33,12 +33,7 @@ const router = (
   <Provider store={store}>
     <Router history={browserHistory} >
       <Route path='/' component={AppContainer}>
-      {/* <IndexRedirect to='/songcards' component={SongCardsContainer} /> */}
         <Route path='/songcards' component={SongCardsContainer} />
-        {/* <IndexRoute component={MovieIndexContainer} />
-        <Route path='/favorites' component={FavoritesContainer} />
-        <Route path='/mysongs' component={MySongsContainer} />
-        <Route path='/songcards' component={SongCardsContainer} /> */}
       </Route>
     </Router>
   </Provider>

@@ -1,10 +1,32 @@
 
+a {
+  float: left;
+  text-decoration: none;
+  font-size: 30px;
+  margin-left: 20px;
+  transition: 1s;
+}
+
+a:hover {
+  transform: scale(2);
+  color: white;
+}
+
 h2 {
-  margin-top: 15px;
+  margin: 15px;
 }
 
 h1 {
   color: black;
+  display: block;
+  text-align: center;
+  font-family: monospace;
+  font-size: 24px;
+  color: salmon;
+}
+
+ video {
+  margin-top: 85px;
 }
 
 li {
@@ -27,12 +49,14 @@ li {
   height: 80px;
 }
 
+#at {
+  float: right;
+}
 
 .App-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
-  margin-top: 20px;
   color: white;
 }
 

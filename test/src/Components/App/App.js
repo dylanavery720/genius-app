@@ -11,17 +11,25 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      draftMessage: ''
+      draftMessage: '',
+      access_token: ''
     }
     this.search = this.search.bind(this)
     this.artistSearch = this.artistSearch.bind(this)
     this.updateSearch = this.updateSearch.bind(this)
+    this.fetchToken = this.fetchToken.bind(this)
   }
 
-  search(id) {
-      fetch(`https://api.genius.com/artists/${id}?access_token=j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM&q`)
+  fetchToken() {
+    fetch('http://localhost:9000/api/key')
+    .then(response => response.json())
+    .then(data => this.setState({access_token: data.data.access_token}))
+  }
+
+  search() {
+      fetch(`https://api.vimeo.com/videos?query=${this.state.draftMessage}&access_token=cc8f296cd66332398daf60f3a9b73575`)
       .then(response => response.json())
-      .then(data => data.response)
+      .then(data => data.data)
       .then(payload => this.props.displaySearched(this.state.draftMessage, payload))
     browserHistory.push('/songcards')
   }
@@ -37,14 +45,18 @@ class App extends Component {
     this.setState({draftMessage: e.target.value})
   }
 
+// https://api.vimeo.com/videos?query=denver
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
+          <a href="http://localhost:9000/test">Login</a>
+          {<button id="at" onClick={this.fetchToken}>Get Access Token</button>}
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Rap Genius Genius</h2>
+          <h2>WriterFavez</h2>
           <input onChange={e => this.updateSearch(e)}></input>
-          <button onClick={this.artistSearch}>Click</button>
+          <button onClick={this.search}>Click</button>
         </div>
         {this.props.children}
         <div className="App-footer"></div>
