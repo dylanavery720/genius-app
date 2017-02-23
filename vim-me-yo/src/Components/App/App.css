@@ -6,6 +6,7 @@ a {
   font-size: 30px;
   margin-left: 20px;
   transition: 1s;
+  font-family: 'Pattaya', sans-serif;
 }
 
 a:hover {

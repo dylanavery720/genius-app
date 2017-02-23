@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from '../../record1.png';
 import '../../Reset.css';
 import './App.css';
-import '../MySongs/MySongs';
 import { browserHistory } from 'react-router';
 
 
@@ -14,7 +13,6 @@ class App extends Component {
       access_token: '',
     }
     this.search = this.search.bind(this)
-    this.artistSearch = this.artistSearch.bind(this)
     this.updateSearch = this.updateSearch.bind(this)
     this.fetchToken = this.fetchToken.bind(this)
   }
@@ -31,18 +29,12 @@ class App extends Component {
   }
 
   search() {
-      fetch(`https://api.vimeo.com/videos?query=${this.state.draftMessage}&access_token=${this.state.access_token.access_token}`)
+    const { draftMessage, access_token } = this.state
+      fetch(`https://api.vimeo.com/videos?query=${draftMessage}&access_token=${access_token.access_token}`)
       .then(response => response.json())
       .then(data => data.data)
-      .then(payload => this.props.displaySearched(this.state.draftMessage, payload))
-    browserHistory.push('/songcards')
-  }
-
-  artistSearch() {
-    fetch(`https://api.genius.com/search?access_token=j4DQ4ILmQIj07lZA6P_j_2ZjTrG_db2Bxg2aIvLN7tVaq0UxgSgqh8He1T3o28UM&q=${this.state.draftMessage}`)
-    .then(response => response.json())
-    .then(data => data.response.hits[0].result.primary_artist.id)
-    .then(payload => this.search(payload))
+      .then(payload => this.props.displaySearched(draftMessage, payload))
+    browserHistory.push('/videocards')
   }
 
   updateSearch(e) {
