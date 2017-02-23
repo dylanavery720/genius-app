@@ -15,13 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-// app.use(function(req, res, next) { res.header('Access-Control-Allow-Origin', "*"); res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE'); res.header('Access-Control-Allow-Headers', 'Content-Type'); next();
-// })
-
-// KMjW6p2aO3UI/yR7+C8fO9YFYeVRSfl4c9zK4fZWPOb5pmqS9gG8rtpO8Ntw91d8hJ5w1JZdP1HWdK4PxIiwDP0aU0dPhy/8VKja9G02t835aWHaXArrWowLr8i9WtGq
-
-
-
 
 app.get('/test', (request, response, next) => {
   let authUrl = `https://api.vimeo.com/oauth/authorize?client_id=${oauth.clientId}&response_type=code&redirect_uri=${oauth.redirectUri}&state=90059`
