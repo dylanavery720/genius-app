@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   search() {
-      fetch(`https://api.vimeo.com/videos?query=${this.state.draftMessage}&access_token=cc8f296cd66332398daf60f3a9b73575`)
+      fetch(`https://api.vimeo.com/videos?query=${this.state.draftMessage}&access_token=${this.state.access_token.access_token}`)
       .then(response => response.json())
       .then(data => data.data)
       .then(payload => this.props.displaySearched(this.state.draftMessage, payload))
