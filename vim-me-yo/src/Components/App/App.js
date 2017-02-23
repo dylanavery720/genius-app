@@ -3,9 +3,8 @@ import logo from '../../record1.png';
 import '../../Reset.css';
 import './App.css';
 import '../MySongs/MySongs';
-import { displaySearched } from '../../Actions/index.js';
-import { Link, browserHistory } from 'react-router';
-import store from '../../index.js'
+import { browserHistory } from 'react-router';
+
 
 class App extends Component {
   constructor() {
@@ -59,8 +58,9 @@ class App extends Component {
           {access_token && <button id="at" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={this.fetchToken}>Get Access Token</button>}
           <img src={logo} className="App-logo" alt="logo" />
           <h1>Palatial Revimeo</h1>
-          <input onChange={e => this.updateSearch(e)}></input>
-          <button onClick={this.search}>Click</button>
+          <input className='mdl-textfield__input' onChange={e => this.updateSearch(e)}></input>
+          <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={this.search}>Search</button>
+          {/* <i class="material-icons">search</i> */}
         </div>
         {this.props.children}
         <div className="App-footer"></div>

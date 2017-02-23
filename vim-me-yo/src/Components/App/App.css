@@ -17,6 +17,20 @@ h2 {
   margin: 15px;
 }
 
+.mdl-textfield__input {
+    border: 1px solid salmon;
+    border-bottom: 1px solid salmon;
+    display: inline-block;
+    font-size: 16px;
+    font-family: "Helvetica","Arial",sans-serif;
+    margin: 10px;
+    padding: 4px 0;
+    width: 33%;
+    background: 0 0;
+    text-align: left;
+    color: inherit;
+}
+
 h1 {
   color: black;
   display: block;
@@ -34,6 +48,7 @@ h1 {
 li {
   width: 33%;
   display: inline-block;
+  margin: 20px;
 }
 .App {
   text-align: center;
@@ -49,6 +64,7 @@ li {
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  margin-right: 80px;
 }
 
 #at {
