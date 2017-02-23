@@ -3,9 +3,15 @@ import React, { Component } from 'react';
 export default class SongCards extends Component {
 
   loadSongs() {
+
         return (
           <div>
-          <iframe src="//player.vimeo.com/video/68866759" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          {this.props.searchedSongs.map((songs, i) => {
+            let str = songs.uri
+            let newStr = str.slice(0,6) + str.slice(7, str.length)
+          return    <iframe src={`//player.vimeo.com${newStr}`} width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          })}
+
           </div>
         )
    }
