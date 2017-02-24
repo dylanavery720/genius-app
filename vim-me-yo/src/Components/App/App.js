@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import logo from '../../record1.png';
 import '../../Reset.css';
 import './App.css';
 import { browserHistory } from 'react-router';
-import Button from '../Button/Button'
+import Header from '../Header/Header'
 
 
 class App extends Component {
@@ -45,14 +44,7 @@ class App extends Component {
     const { access_token } = this.state
     return (
       <div className="App">
-        <div className="App-header">
-          {!access_token && <a href="http://localhost:9000/test">Login</a>}
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>Palatial Revimeo</h1>
-          <input className='mdl-textfield__input' onChange={e => this.updateSearch(e)}></input>
-          <Button classes="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" handleClick={this.search} text="Search" />
-          {/* <i class="material-icons">search</i> */}
-        </div>
+        <Header search={this.search} classes="App-header"  token={access_token} updateSearch={this.updateSearch} />
         {this.props.children}
         <div className="App-footer"></div>
       </div>
