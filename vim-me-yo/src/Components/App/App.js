@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from '../../record1.png';
 import '../../Reset.css';
 import './App.css';
 import { browserHistory } from 'react-router';
+import Header from '../Header/Header'
 
 
 class App extends Component {
@@ -18,8 +18,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchToken()
-    this.fetchToken()
+    setTimeout(this.fetchToken(), 2000)
   }
 
   fetchToken() {
@@ -41,19 +40,15 @@ class App extends Component {
     this.setState({draftMessage: e.target.value})
   }
 
+  favesRoute() {
+    browserHistory.push('/favorites')
+  }
+
   render() {
     const { access_token } = this.state
     return (
       <div className="App">
-        <div className="App-header">
-          {!access_token && <a href="http://localhost:9000/test">Login</a>}
-          {access_token && <button id="at" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={this.fetchToken}>Get Access Token</button>}
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>Palatial Revimeo</h1>
-          <input className='mdl-textfield__input' onChange={e => this.updateSearch(e)}></input>
-          <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={this.search}>Search</button>
-          {/* <i class="material-icons">search</i> */}
-        </div>
+        <Header search={this.search} classes="App-header"  token={access_token} updateSearch={this.updateSearch} handleClick={this.favesRoute.bind(this)} />
         {this.props.children}
         <div className="App-footer"></div>
       </div>
