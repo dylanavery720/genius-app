@@ -3,6 +3,7 @@ import logo from '../../record1.png';
 import '../../Reset.css';
 import './App.css';
 import { browserHistory } from 'react-router';
+import Button from '../Button/Button'
 
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    setTimeout(this.fetchToken(), 1000)
+    setTimeout(this.fetchToken(), 2000)
   }
 
   fetchToken() {
@@ -49,7 +50,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1>Palatial Revimeo</h1>
           <input className='mdl-textfield__input' onChange={e => this.updateSearch(e)}></input>
-          <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={this.search}>Search</button>
+          <Button classes="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" handleClick={this.search} text="Search" />
           {/* <i class="material-icons">search</i> */}
         </div>
         {this.props.children}
