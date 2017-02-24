@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchToken()
+    setTimeout(this.fetchToken(), 1000)
   }
 
   fetchToken() {
@@ -46,7 +46,6 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           {!access_token && <a href="http://localhost:9000/test">Login</a>}
-          {access_token && <button id="at" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={this.fetchToken}>Get Access Token</button>}
           <img src={logo} className="App-logo" alt="logo" />
           <h1>Palatial Revimeo</h1>
           <input className='mdl-textfield__input' onChange={e => this.updateSearch(e)}></input>
