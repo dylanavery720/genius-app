@@ -16,7 +16,7 @@ a:hover {
 
 h2 {
   color: black;
-  display: block;
+  display: inline-block;
   text-align: center;
   font-family: 'Atma', cursive;
   font-size: 24px;
@@ -40,7 +40,7 @@ h1 {
 }
 
 ul {
-  padding-top: 250px;
+  padding-top: 200px;
   padding-bottom: 150px;
 }
 
@@ -51,11 +51,6 @@ li {
   color: #fff;
 }
 
-.mdl-card {
-  width: 100%;
-  position: static;
-  background-color: #FFFCE3;
-}
 
 .App {
   text-align: center;
@@ -64,11 +59,8 @@ li {
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
-  margin-right: 80px;
-}
-
-#at {
-  float: left;
+  margin-right: 50px;
+  float: right;
 }
 
 .App-header {
@@ -112,4 +104,19 @@ li {
   background: 0 0;
   text-align: left;
   color: inherit;
+}
+
+.mdl-button--icon {
+  color: black;
+  margin-bottom: 5px;
+}
+
+.mdl-button--icon:hover {
+  transform: scale(1.5);
+}
+
+.mdl-card {
+  width: 100%;
+  position: static;
+  background-color: #FFFCE3;
 }

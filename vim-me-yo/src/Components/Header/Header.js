@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../Button/Button'
-import logo from '../../record1.png';
+import logo from '../../film-reel.png';
 
 const Header = (props) => {
   return (
