@@ -40,11 +40,15 @@ class App extends Component {
     this.setState({draftMessage: e.target.value})
   }
 
+  favesRoute() {
+    browserHistory.push('/favorites')
+  }
+
   render() {
     const { access_token } = this.state
     return (
       <div className="App">
-        <Header search={this.search} classes="App-header"  token={access_token} updateSearch={this.updateSearch} />
+        <Header search={this.search} classes="App-header"  token={access_token} updateSearch={this.updateSearch} handleClick={this.favesRoute.bind(this)} />
         {this.props.children}
         <div className="App-footer"></div>
       </div>

@@ -10,6 +10,7 @@ import './index.css';
 
 import VideoCardsContainer from './Containers/VideoCardsContainer'
 import AppContainer from './Containers/AppContainer'
+import VideoFavoritesContainer from './Containers/VideoFavoritesContainer'
 
 import videos from './Reducers/videos-reducer'
 
@@ -20,7 +21,7 @@ const store = createStore(
   {
     videos: {
       searchedVideos: [],
-      favorites: [],
+      favoriteVideos: [],
     },
   },
   composeEnhancers(applyMiddleware(thunk)),
@@ -30,7 +31,8 @@ const router = (
   <Provider store={store}>
     <Router history={browserHistory} >
       <Route path='/' component={AppContainer}>
-        <Route path='/videocards' component={VideoCardsContainer} />
+        <IndexRoute component={VideoCardsContainer} />
+        <Route path='/favorites' component={VideoFavoritesContainer} />
       </Route>
     </Router>
   </Provider>

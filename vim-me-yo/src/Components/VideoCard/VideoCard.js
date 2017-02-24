@@ -2,13 +2,13 @@ import React from 'react';
 import Button from '../Button/Button'
 
 const VideoCard = (props) => {
-  let shortTags = props.tags.map.splice(0,4)
+  let shortTags = props.tags.splice(0,4)
   return (
     <li className={props.classes} key={props.keys}>
-    {shortTags.map(tag =><h2>#{tag.canonical}</h2>)}
+    {shortTags.map(tag =><h3 className="mdl-card__title-text">#{tag.canonical} </h3>)}
       <iframe src={props.src} width="480" height="270"></iframe>
     <button className="mdl-button mdl-js-button mdl-button--icon">
-      <i className="material-icons">mood</i>
+      <i className="material-icons" onClick={props.favorite}>mood</i>
     </button>
     </li>
   )

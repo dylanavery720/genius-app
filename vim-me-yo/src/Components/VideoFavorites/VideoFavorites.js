@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import VideoCard from '../VideoCard/VideoCard'
 
-export default class VideoCards extends Component {
+export default class VideoFavorites extends Component {
 
-  loadVideos() {
-        let shortArray = this.props.searchedVideos.splice(0,6)
+  loadFavorites() {
         return (
           <div>
-          {shortArray.map((video, i) => {
+          {this.props.favoriteVideos.map((video, i) => {
             let str = video.uri
             let newStr = str.slice(0,6) + str.slice(7, str.length)
-          return <VideoCard classes="mdl-shadow--2dp" keys={i} src={`//player.vimeo.com${newStr}`} tags={video.tags} favorite={e => this.props.addFavorite(video)}/>
+          return <VideoCard classes="mdl-shadow--2dp" keys={i} src={`//player.vimeo.com${newStr}`} tags={video.tags}/>
           })}
           </div>
         )
@@ -21,7 +20,7 @@ export default class VideoCards extends Component {
   return (
       <div>
       <ul className='mdl-card'>
-      {this.loadVideos()}
+      {this.loadFavorites()}
       </ul>
       </div>
   )
