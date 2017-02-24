@@ -9,7 +9,7 @@ export default class VideoCards extends Component {
           {shortArray.map((video, i) => {
             let str = video.uri
             let newStr = str.slice(0,6) + str.slice(7, str.length)
-          return    <li key={i}><iframe src={`//player.vimeo.com${newStr}`} width="480" height="270"></iframe></li>
+          return    <li className='mdl-shadow--2dp' key={i} ><iframe src={`//player.vimeo.com${newStr}`} width="480" height="270"></iframe></li>
           })}
           </div>
         )
@@ -19,7 +19,7 @@ export default class VideoCards extends Component {
   render() {
   return (
       <div>
-      <ul>
+      <ul className='mdl-card'>
       {this.loadVideos()}
       </ul>
       </div>

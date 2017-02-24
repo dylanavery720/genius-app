@@ -19,7 +19,6 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchToken()
-    this.fetchToken()
   }
 
   fetchToken() {

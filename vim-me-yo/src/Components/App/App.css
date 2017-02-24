@@ -10,7 +10,7 @@ a {
 }
 
 a:hover {
-  transform: scale(2);
+  transform: scale(1);
   color: white;
 }
 
@@ -35,18 +35,26 @@ h1 {
 }
 
  iframe {
-  margin: 20px;
+  margin: 20px auto;
+  width: 80%;
 }
 
 ul {
   padding-top: 250px;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
 }
 
 li {
-  width: 33%;
+  width: 40%;
   display: inline-block;
   margin: 20px;
+  color: #fff;
+}
+
+.mdl-card {
+  width: 100%;
+  position: static;
+  background-color: #FFFCE3;
 }
 
 .App {
