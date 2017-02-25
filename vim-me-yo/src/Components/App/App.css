@@ -53,6 +53,7 @@ li {
 
 .fave-link {
   float:right;
+  margin: 5px;
 }
 
 .App {
@@ -61,7 +62,7 @@ li {
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 20px;
   margin-right: 50px;
   float: right;
   cursor: crosshair;
@@ -130,6 +131,10 @@ li {
   display: inline-block;;
 }
 
+#search-glass {
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
 
   h1 {
@@ -153,5 +158,14 @@ li {
 
   a {
     margin-left: 10px
+  }
+
+  #search-glass {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .mdl-button {
+   display: none;
   }
 }
