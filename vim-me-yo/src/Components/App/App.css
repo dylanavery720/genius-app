@@ -78,7 +78,7 @@ li {
 
 .App-footer {
   background-color: #222;
-  height: 100px;
+  height: 50px;
   padding: 20px;
   color: white;
   bottom: 0;
@@ -102,7 +102,7 @@ li {
   display: inline-block;
   font-size: 16px;
   font-family: "Helvetica","Arial",sans-serif;
-  margin: 10px;
+  margin: 10px 15px;
   padding: 4px 0;
   width: 33%;
   background: 0 0;
@@ -128,4 +128,30 @@ li {
 .mdl-card__title-text {
   color: salmon;
   display: inline-block;;
+}
+
+@media screen and (max-width: 600px) {
+
+  h1 {
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 30px;
+  }
+
+  .App-footer {
+    height: 25px;
+  }
+
+  .App-logo {
+    display: none;
+  }
+
+  .fave-link {
+    float: none;
+    margin-left: 100px;
+  }
+
+  a {
+    margin-left: 10px
+  }
 }
