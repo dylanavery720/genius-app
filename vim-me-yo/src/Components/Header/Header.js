@@ -12,7 +12,7 @@ const Header = (props) => {
       <h1 onClick={props.handleHome}>Palatial Revimeo</h1>
       <input className='mdl-textfield__input' onChange={props.updateSearch}></input>
       <Button classes="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" handleClick={props.search} text="Search" />
-      {/* <i class="material-icons">search</i> */}
+      <i className="search-glass" handleClick={props.search} class="material-icons">search</i>
     </div>
   )
 }

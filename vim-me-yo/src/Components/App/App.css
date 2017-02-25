@@ -19,13 +19,9 @@ h3 {
 }
 
 h2 {
-  /*color: black;*/
   display: inline-block;
-  /*text-align: center;*/
   font-family: 'Pattaya', cursive;
   font-size: 24px;
-  /*color: salmon;
-  margin: 15px;*/
 }
 
 h1 {
