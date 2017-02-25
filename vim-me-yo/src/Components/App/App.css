@@ -14,6 +14,10 @@ a:hover {
   color: white;
 }
 
+h3 {
+  margin: 5px;
+}
+
 h2 {
   /*color: black;*/
   display: inline-block;

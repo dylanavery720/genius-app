@@ -44,11 +44,15 @@ class App extends Component {
     browserHistory.push('/favorites')
   }
 
+  handleHome() {
+    browserHistory.push('/')
+  }
+
   render() {
     const { access_token } = this.state
     return (
       <div className="App">
-        <Header search={this.search} classes="App-header"  token={access_token} updateSearch={this.updateSearch} handleClick={this.favesRoute.bind(this)} />
+        <Header search={this.search} classes="App-header"  token={access_token} updateSearch={this.updateSearch} handleClick={this.favesRoute.bind(this)} handleHome={this.handleHome} />
         {this.props.children}
         <div className="App-footer"></div>
       </div>
