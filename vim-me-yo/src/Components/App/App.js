@@ -18,13 +18,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    setTimeout(this.fetchToken(), 2000)
+    this.fetchToken()
   }
 
   fetchToken() {
     fetch('http://localhost:9000/api/key')
     .then(response => response.json())
-    .then(data => this.setState({access_token: data.data}))
+    .then(data => this.setState({access_token: data.data}, () => {
+      browserHistory.push('/')
+    }))
   }
 
   search() {
