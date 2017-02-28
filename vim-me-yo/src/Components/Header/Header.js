@@ -7,6 +7,10 @@ const Header = (props) => {
   return (
     <div className={props.classes}>
       {!props.token && <a href="http://localhost:9000/test">Login</a>}
+      {props.token &&
+      <div>
+        <a onClick={props.logOut}>Log Out</a>
+      </div>}
       <img
         src={logo}
         className="App-logo"
@@ -15,6 +19,7 @@ const Header = (props) => {
       />
       <a onClick={props.handleClick} className="fave-link">Favorites</a>
       <h1 onClick={props.handleHome}>Palatial Revimeo</h1>
+      {props.token && <h3>WELCOME, {props.token.user.name}</h3>}
       <input className="mdl-textfield__input" onChange={props.updateSearch} />
       <Button
         id="search-butt"
@@ -42,6 +47,7 @@ Header.propTypes = {
   handleHome: React.PropTypes.func,
   updateSearch: React.PropTypes.func,
   search: React.PropTypes.func,
+  logOut: React.PropTypes.func,
 }
 
 
