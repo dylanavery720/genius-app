@@ -5,14 +5,14 @@ import { Router, Route, IndexRoute, browserHistory, IndexRedirect } from 'react-
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 
-import './index.css';
-
-
 import VideoCardsContainer from './Containers/VideoCardsContainer'
 import AppContainer from './Containers/AppContainer'
 import VideoFavoritesContainer from './Containers/VideoFavoritesContainer'
+import './index.css';
 
 import videos from './Reducers/videos-reducer'
+
+let window;
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

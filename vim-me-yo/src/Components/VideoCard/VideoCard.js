@@ -8,7 +8,7 @@ const VideoCard = (props) => {
       {shortTags.map(tag => <h3 className="mdl-card__title-text">&nbsp; #{tag.canonical}</h3>)}
       <iframe src={props.src} width="480" height="270" />
       <button className="mdl-button mdl-js-button mdl-button--icon">
-      <i className="material-icons" onClick={props.favorite}>mood</i>
+        <i className="material-icons" onClick={props.favorite}>mood</i>
       </button>
     </li>
   )
