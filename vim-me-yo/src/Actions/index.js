@@ -1,9 +1,9 @@
 export const displaySearched = (query, payload) => {
   return {
-  type: 'DISPLAY_SEARCHED',
-  query,
-  payload,
- }
+    type: 'DISPLAY_SEARCHED',
+    query,
+    payload,
+  }
 }
 
 export const addFavorite = (video) => {
