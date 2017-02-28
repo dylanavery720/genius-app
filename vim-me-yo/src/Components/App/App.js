@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import '../../Reset.css';
 import './App.css';
-import { browserHistory } from 'react-router';
-import Header from '../Header/Header'
+import Header from '../Header/Header';
+
+let fetch;
 
 
 class App extends Component {
@@ -10,7 +12,7 @@ class App extends Component {
     super()
     this.state = {
       draftMessage: '',
-      access_token: '',
+      accessToken: '',
     }
     this.search = this.search.bind(this)
     this.updateSearch = this.updateSearch.bind(this)
@@ -24,14 +26,14 @@ class App extends Component {
   fetchToken() {
     fetch('http://localhost:9000/api/key')
     .then(response => response.json())
-    .then(data => this.setState({access_token: data.data}, () => {
+    .then(json => this.setState({ accessToken: json.data }, () => {
       browserHistory.push('/')
     }))
   }
 
   search() {
-    const { draftMessage, access_token } = this.state
-      fetch(`https://api.vimeo.com/videos?query=${draftMessage}&access_token=${access_token.access_token}`)
+    const { draftMessage, accessToken } = this.state
+    fetch(`https://api.vimeo.com/videos?query=${draftMessage}&access_token=${accessToken.access_token}`)
       .then(response => response.json())
       .then(data => data.data)
       .then(payload => this.props.displaySearched(draftMessage, payload))
@@ -39,7 +41,7 @@ class App extends Component {
   }
 
   updateSearch(e) {
-    this.setState({draftMessage: e.target.value})
+    this.setState({ draftMessage: e.target.value })
   }
 
   favesRoute() {
@@ -51,15 +53,27 @@ class App extends Component {
   }
 
   render() {
-    const { access_token } = this.state
+    const { accessToken } = this.state
     return (
       <div className="App">
-        <Header search={this.search} classes="App-header"  token={access_token} updateSearch={this.updateSearch} handleClick={this.favesRoute.bind(this)} handleHome={this.handleHome} />
+        <Header
+          search={this.search}
+          classes="App-header"
+          token={accessToken}
+          updateSearch={this.updateSearch}
+          handleClick={this.favesRoute.bind(this)}
+          handleHome={this.handleHome}
+        />
         {this.props.children}
-        <div className="App-footer"></div>
+        <div className="App-footer" />
       </div>
     );
   }
+}
+
+App.propTypes = {
+  children: React.PropTypes.node,
+  displaySearched: React.PropTypes.func,
 }
 
 export default App;

@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  displayPopular
+  displayPopular,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoFavorites)
