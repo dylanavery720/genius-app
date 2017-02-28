@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import VideoCard from '../VideoCard/VideoCard'
 
-export default class VideoFavorites extends Component {
+class VideoFavorites extends Component {
 
   loadFavorites() {
     return (
@@ -26,3 +26,9 @@ export default class VideoFavorites extends Component {
     )
   }
 }
+
+VideoFavorites.propTypes = {
+  favoriteVideos: React.PropTypes.func,
+}
+
+export default VideoFavorites;

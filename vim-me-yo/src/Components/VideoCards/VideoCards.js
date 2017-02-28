@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import VideoCard from '../VideoCard/VideoCard'
 
-export default class VideoCards extends Component {
+class VideoCards extends Component {
 
   loadVideos() {
     const shortArray = this.props.searchedVideos.splice(0, 6)
@@ -27,3 +27,10 @@ export default class VideoCards extends Component {
     )
   }
 }
+
+VideoCards.propTypes = {
+  searchedVideos: React.PropTypes.func,
+  addFavorite: React.PropTypes.func,
+}
+
+export default VideoCards;

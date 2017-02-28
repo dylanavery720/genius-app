@@ -14,4 +14,12 @@ const VideoCard = (props) => {
   )
 }
 
+VideoCard.propTypes = {
+  classes: React.PropTypes.string,
+  keys: React.PropTypes.number,
+  src: React.PropTypes.string,
+  favorite: React.PropTypes.func,
+  tags: React.PropTypes.string,
+}
+
 export default VideoCard
