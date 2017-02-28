@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import '../../Reset.css';
 import './App.css';
-import { browserHistory } from 'react-router';
-import Header from '../Header/Header'
+import Header from '../Header/Header';
+
+let fetch;
 
 
 class App extends Component {
@@ -24,14 +26,14 @@ class App extends Component {
   fetchToken() {
     fetch('http://localhost:9000/api/key')
     .then(response => response.json())
-    .then(data => this.setState({access_token: data.data}, () => {
+    .then(json => this.setState({ access_token: json.data }, () => {
       browserHistory.push('/')
     }))
   }
 
   search() {
     const { draftMessage, access_token } = this.state
-      fetch(`https://api.vimeo.com/videos?query=${draftMessage}&access_token=${access_token.access_token}`)
+    fetch(`https://api.vimeo.com/videos?query=${draftMessage}&access_token=${access_token.access_token}`)
       .then(response => response.json())
       .then(data => data.data)
       .then(payload => this.props.displaySearched(draftMessage, payload))
@@ -39,7 +41,7 @@ class App extends Component {
   }
 
   updateSearch(e) {
-    this.setState({draftMessage: e.target.value})
+    this.setState({ draftMessage: e.target.value })
   }
 
   favesRoute() {
@@ -54,7 +56,14 @@ class App extends Component {
     const { access_token } = this.state
     return (
       <div className="App">
-        <Header search={this.search} classes="App-header"  token={access_token} updateSearch={this.updateSearch} handleClick={this.favesRoute.bind(this)} handleHome={this.handleHome} />
+        <Header
+          search={this.search}
+          classes="App-header"
+          token={access_token}
+          updateSearch={this.updateSearch}
+          handleClick={this.favesRoute.bind(this)}
+          handleHome={this.handleHome}
+        />
         {this.props.children}
         <div className="App-footer"></div>
       </div>

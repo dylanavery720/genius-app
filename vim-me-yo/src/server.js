@@ -42,8 +42,6 @@ app.get('/callback', (req, res, next) => {
     if (response.statusCode > 399) {
       console.log('error', error)
     } else {
-      console.log(response.statusCode)
-      console.log(response.body.access_token)
       apiKey = JSON.parse(response.body)
       console.log(apiKey.access_token)
     }
