@@ -12,9 +12,6 @@ import './index.css';
 
 import videos from './Reducers/videos-reducer'
 
-let window;
-let document;
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(

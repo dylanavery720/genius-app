@@ -4,6 +4,7 @@ const videos = (state = {}, action) => {
       return Object.assign({}, state, { searchedVideos: action.payload })
     case 'ADD_FAVE':
       const favoriteVideos = [action.video, ...state.favoriteVideos]
+      document.getElementById(action.id).parentNode.classList.toggle('mdl-button--colored')
       return Object.assign({}, state, { favoriteVideos })
     default:
       return state

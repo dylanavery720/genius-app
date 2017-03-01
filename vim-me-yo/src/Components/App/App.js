@@ -4,9 +4,6 @@ import '../../Reset.css';
 import './App.css';
 import Header from '../Header/Header';
 
-let fetch;
-
-
 class App extends Component {
   constructor() {
     super()
@@ -17,6 +14,7 @@ class App extends Component {
     this.search = this.search.bind(this)
     this.updateSearch = this.updateSearch.bind(this)
     this.fetchToken = this.fetchToken.bind(this)
+    this.logOut = this.logOut.bind(this)
   }
 
   componentDidMount() {
@@ -52,6 +50,11 @@ class App extends Component {
     browserHistory.push('/')
   }
 
+  logOut() {
+    browserHistory.push('/')
+    this.setState({ accessToken: '' })
+  }
+
   render() {
     const { accessToken } = this.state
     return (
@@ -61,8 +64,9 @@ class App extends Component {
           classes="App-header"
           token={accessToken}
           updateSearch={this.updateSearch}
-          handleClick={this.favesRoute.bind(this)}
+          handleClick={this.favesRoute}
           handleHome={this.handleHome}
+          logOut={this.logOut}
         />
         {this.props.children}
         <div className="App-footer" />

@@ -33,12 +33,8 @@ h1 {
   font-size: 44px;
   color: salmon;
   margin: 15px 25px;
+  cursor: pointer;
 }
-
- /*iframe {
-  margin: 20px auto;
-  width: 80%;
-}*/
 
 ul {
   padding-top: 200px;
@@ -161,6 +157,11 @@ li {
     margin-left: 10px
   }
 
+  li {
+    display: block;
+    width: 100%;
+  }
+
   #search-glass {
     display: inline-block;
     cursor: pointer;
@@ -168,5 +169,10 @@ li {
 
   .mdl-button {
    display: none;
+  }
+
+  #smiley:checked{
+    color: red;
+    background-color: red;
   }
 }
