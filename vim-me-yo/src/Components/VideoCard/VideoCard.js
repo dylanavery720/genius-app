@@ -7,8 +7,8 @@ const VideoCard = (props) => {
     <li className={props.classes} key={props.keys}>
       {shortTags.map(tag => <h3 className="mdl-card__title-text">&nbsp; #{tag.canonical}</h3>)}
       <iframe src={props.src} width="480" height="270" />
-      <button className="mdl-button mdl-js-button mdl-button--icon">
-        <i className="material-icons" onClick={props.favorite}>mood</i>
+      <button type="checkbox" id="smiley" className="mdl-button mdl-js-button mdl-button--icon">
+        <i className="material-icons" id={props.id} onClick={props.favorite}>mood</i>
       </button>
     </li>
   )
@@ -20,6 +20,7 @@ VideoCard.propTypes = {
   src: React.PropTypes.string,
   favorite: React.PropTypes.func,
   tags: React.PropTypes.string,
+  id: React.PropTypes.number,
 }
 
 export default VideoCard
