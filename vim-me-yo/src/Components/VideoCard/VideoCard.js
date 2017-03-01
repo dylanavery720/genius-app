@@ -19,7 +19,7 @@ VideoCard.propTypes = {
   keys: React.PropTypes.number,
   src: React.PropTypes.string,
   favorite: React.PropTypes.func,
-  tags: React.PropTypes.string,
+  tags: React.PropTypes.array,
   id: React.PropTypes.number,
 }
 

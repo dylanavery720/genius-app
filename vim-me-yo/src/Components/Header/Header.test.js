@@ -28,7 +28,7 @@ it('should make an API call when search is being input', () => {
   expect(updateSearch.mock.calls.length).toBe(1)
 });
 
-it.skip('should return a logout button and welcome message if access token present', () => {
+it('should return a logout button and welcome message if access token present', () => {
   const tokenProps = {
     user: {
       name: 'D Diddy Bop',
@@ -40,5 +40,5 @@ it.skip('should return a logout button and welcome message if access token prese
   const welcome = <h3>WELCOME, {tokenProps.user.name}</h3>
   const logout = <a onClick={logOut}>Log Out</a>
     expect(wrapper.contains(logout)).toEqual(true)
-    expect(wrapper.contains(userName)).toEqual(true)
+    expect(wrapper.contains(welcome)).toEqual(true)
 });
