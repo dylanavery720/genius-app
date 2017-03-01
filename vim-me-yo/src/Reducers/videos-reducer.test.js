@@ -24,7 +24,7 @@ describe('movies reducer', () => {
   });
 
   it('should allow a user to add a Fave when action is ADD_FAVE', () => {
-    const mockVid1 = 'Office Space Trailer';
+    const mockVid1 = ['Office Space Trailer', 'some other movie'];
 
     expect(videos(initialState, {
       type: 'ADD_FAVE',
