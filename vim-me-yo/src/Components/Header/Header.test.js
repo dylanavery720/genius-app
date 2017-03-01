@@ -35,8 +35,8 @@ it('should return a logout button and welcome message if access token present', 
     },
     token: '1248192470',
   }
-  const wrapper = mount(<Header token={tokenProps}/>)
   const logOut = jest.fn()
+  const wrapper = mount(<Header token={tokenProps} logOut={logOut}/>)
   const welcome = <h3>WELCOME, {tokenProps.user.name}</h3>
   const logout = <a onClick={logOut}>Log Out</a>
     expect(wrapper.contains(logout)).toEqual(true)

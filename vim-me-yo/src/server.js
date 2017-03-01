@@ -37,14 +37,9 @@ app.get('/callback', (req, res, next) => {
       response_type: 'code',
     },
   }
-
-// move this into fetchController andmake access_token dynamic?
-  //
   request.post(options, (error, response) => {
     apiKey = JSON.parse(response.body)
   })
-
-// move this into fetchController andmake access_token dynamic?
   res.redirect('/')
 })
 
