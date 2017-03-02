@@ -3,7 +3,7 @@ import { shallow, mount  } from 'enzyme'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 
-import favoriteVideos from '../../mockdata'
+import { favoriteVideos } from '../../mockdata'
 import VideoFavoritesContainer from './VideoFavoritesContainer'
 import VideoFavorites from '../Components/VideoFavorites/VideoFavorites'
 
@@ -29,8 +29,8 @@ describe('VideoFavoritesContainer', () => {
   const { Container, Component } = setup();
 
   it('should pass the appropriate props from state', () => {
-    expect(Component.props().videos).toEqual({
-      favoriteVideos: favoriteVideos,
+    expect(Component.props().favoriteVideos).toEqual({
+      favoriteVideos: {favoriteVideos: favoriteVideos},
     });
   });
 

@@ -3,7 +3,7 @@ import { shallow, mount  } from 'enzyme'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 
-import favoriteVideos from '../../mockdata'
+import { favoriteVideos } from '../../mockdata'
 import AppContainer from './AppContainer'
 import App from '../Components/App/App'
 
