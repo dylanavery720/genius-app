@@ -29,7 +29,7 @@ class VideoCards extends Component {
 }
 
 VideoCards.propTypes = {
-  searchedVideos: React.PropTypes.func,
+  searchedVideos: React.PropTypes.array,
   addFavorite: React.PropTypes.func,
 }
 
