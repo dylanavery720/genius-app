@@ -24,11 +24,10 @@ describe('movies reducer', () => {
 
     expect(videos(initialState, {
       type: 'ADD_FAVE',
-      id: id,
+      id,
       video: mockVid1,
     })).toEqual({
       payload: mockVid1,
     });
   });
-
 });

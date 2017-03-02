@@ -42,7 +42,7 @@ const Header = (props) => {
 
 Header.propTypes = {
   classes: React.PropTypes.string,
-  token: React.PropTypes.object,
+  token: React.PropTypes.node,
   handleClick: React.PropTypes.func,
   handleHome: React.PropTypes.func,
   updateSearch: React.PropTypes.func,

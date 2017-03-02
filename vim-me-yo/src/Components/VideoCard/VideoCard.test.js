@@ -21,3 +21,21 @@ it('take a long list of tags and return a list of only the first 4', () => {
   const newVideoCard = mount(<VideoCard tags={tags} />)
   expect(newVideoCard.find('h3').length).toEqual(4)
 });
+
+it('should have a colored smiley face if favorited', () => {
+  const tags = ['#er', '#navy', '#army', 'airforce', 'seals', 'walrus', 'whale', 'pigeon', 'TLC']
+  const newVideoCard = mount(<VideoCard tags={tags} toggleC={true} />)
+  expect(newVideoCard.find('.mdl-button--colored').length).toEqual(1)
+});
+
+it('should have a colored smiley face if favorited', () => {
+  const tags = ['#er', '#navy', '#army', 'airforce', 'seals', 'walrus', 'whale', 'pigeon', 'TLC']
+  const newVideoCard = mount(<VideoCard tags={tags} toggleC={true} />)
+  expect(newVideoCard.find('.mdl-button--colored').length).toEqual(1)
+});
+
+it('should not have a colored smiley face if not favorited', () => {
+  const tags = ['#er', '#navy', '#army', 'airforce', 'seals', 'walrus', 'whale', 'pigeon', 'TLC']
+  const newVideoCard = mount(<VideoCard tags={tags} toggleC={false} />)
+  expect(newVideoCard.find('.mdl-button--colored').length).toEqual(0)
+});
