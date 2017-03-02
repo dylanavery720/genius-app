@@ -19,7 +19,6 @@ const e = {
 };
 
 describe('actions', () => {
-
   afterEach(() => {
     expect(fetchMock.calls().unmatched).toEqual([]);
     store.clearActions();

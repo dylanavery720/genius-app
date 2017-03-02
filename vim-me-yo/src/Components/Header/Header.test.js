@@ -17,7 +17,7 @@ it('accepts a dynamic className', () => {
 it('should return a login button if no access token present', () => {
   const wrapper = mount(<Header />)
   const login = <a href="http://localhost:9000/test">Login</a>
-    expect(wrapper.contains(login)).toEqual(true)
+  expect(wrapper.contains(login)).toEqual(true)
 });
 
 it('should make an API call when search is being input', () => {
@@ -36,9 +36,9 @@ it('should return a logout button and welcome message if access token present', 
     token: '1248192470',
   }
   const logOut = jest.fn()
-  const wrapper = mount(<Header token={tokenProps} logOut={logOut}/>)
+  const wrapper = mount(<Header token={tokenProps} logOut={logOut} />)
   const welcome = <h3>WELCOME, {tokenProps.user.name}</h3>
   const logout = <a onClick={logOut}>Log Out</a>
-    expect(wrapper.contains(logout)).toEqual(true)
-    expect(wrapper.contains(welcome)).toEqual(true)
+  expect(wrapper.contains(logout)).toEqual(true)
+  expect(wrapper.contains(welcome)).toEqual(true)
 });
