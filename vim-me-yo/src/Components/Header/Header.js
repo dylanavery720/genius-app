@@ -32,7 +32,7 @@ const Header = (props) => {
         id="search-glass"
         className="mdl-button mdl-js-button
         mdl-button--fab mdl-button--mini-fab mdl-button--colored"
-        handleClick={props.search}
+        onClick={props.search}
       >
         <i className="material-icons">search</i>
       </button>
@@ -42,7 +42,7 @@ const Header = (props) => {
 
 Header.propTypes = {
   classes: React.PropTypes.string,
-  token: React.PropTypes.string,
+  token: React.PropTypes.object,
   handleClick: React.PropTypes.func,
   handleHome: React.PropTypes.func,
   updateSearch: React.PropTypes.func,

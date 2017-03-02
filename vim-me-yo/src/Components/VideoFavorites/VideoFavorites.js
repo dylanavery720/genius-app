@@ -9,7 +9,7 @@ class VideoFavorites extends Component {
         {this.props.favoriteVideos.map((video, i) => {
           const str = video.uri
           const newStr = str.slice(0, 6) + str.slice(7, str.length)
-          return <VideoCard classes="mdl-shadow--2dp" keys={i} src={`//player.vimeo.com${newStr}`} tags={video.tags} />
+          return <VideoCard classes="mdl-shadow--2dp" keys={i} src={`//player.vimeo.com${newStr}`} tags={video.tags} toggleC={true} favorite={e => this.props.addFavorite(e, video)} />
         })}
       </div>
     )
@@ -28,7 +28,7 @@ class VideoFavorites extends Component {
 }
 
 VideoFavorites.propTypes = {
-  favoriteVideos: React.PropTypes.func,
+  favoriteVideos: React.PropTypes.array,
 }
 
 export default VideoFavorites;
