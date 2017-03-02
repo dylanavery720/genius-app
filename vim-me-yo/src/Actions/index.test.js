@@ -4,13 +4,6 @@ import { addFavorite, displaySearched } from './index';
 
 const store = configureMockStore()();
 
-// const mockStore = store({
-//   videos: {
-//     searchedVideos: [],
-//     favoriteVideos: [],
-//   },
-// });
-
 const mockVids = ['Office Space Trailer', 'Pi Trailer', 'Brides Maids Trailer', 'The Boss In Theatres Now', 'Mike and Milly S1'];
 
 const mockFetchUrl = 'https://api.vimeo.com/videos?query=denver&access_token=347834783479334987394';

@@ -28,7 +28,7 @@ class VideoFavorites extends Component {
 }
 
 VideoFavorites.propTypes = {
-  favoriteVideos: React.PropTypes.func,
+  favoriteVideos: React.PropTypes.array,
 }
 
 export default VideoFavorites;

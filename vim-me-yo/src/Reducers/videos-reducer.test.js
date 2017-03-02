@@ -27,7 +27,7 @@ describe('movies reducer', () => {
       id: id,
       video: mockVid1,
     })).toEqual({
-      payload: mockVid1 ,
+      payload: mockVid1,
     });
   });
 
