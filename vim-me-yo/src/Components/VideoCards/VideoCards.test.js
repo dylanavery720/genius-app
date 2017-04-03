@@ -11,5 +11,5 @@ it('renders without crashing', () => {
 
 it('should only return 6 out of 20 vids', () => {
   const wrapper = mount(<VideoCards searchedVideos={favoriteVideos} />);
-  expect(wrapper.find('#smiley').length).toEqual(6)
+  expect(wrapper.find('li').length).toEqual(6)
 });

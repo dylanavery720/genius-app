@@ -18,7 +18,7 @@ describe('movies reducer', () => {
     });
   });
 
-  it.skip('should allow a user to add a Fave when action is ADD_FAVE', () => {
+  it('should allow a user to add a Fave when action is ADD_FAVE', () => {
     const mockVid1 = ['Office Space Trailer', 'some other movie'];
     const id = 423;
 
