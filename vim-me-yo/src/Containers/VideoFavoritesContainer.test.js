@@ -29,9 +29,7 @@ describe('VideoFavoritesContainer', () => {
   const { Container, Component } = setup();
 
   it('should pass the appropriate props from state', () => {
-    expect(Component.props().favoriteVideos).toEqual({
-      favoriteVideos: { favoriteVideos },
-    });
+    expect(Component.props().favoriteVideos).toEqual(favoriteVideos);
   });
 
   it('should pass down the correct action creators', () => {

@@ -19,7 +19,6 @@ const Header = (props) => {
       />
       <a onClick={props.handleClick} className="fave-link">Favorites</a>
       <h1 onClick={props.handleHome}>Palatial Revimeo</h1>
-      {props.token && <h3>WELCOME, {props.token.user.name}</h3>}
       <input className="mdl-textfield__input" onChange={props.updateSearch} />
       <Button
         id="search-butt"

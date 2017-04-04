@@ -31,9 +31,9 @@ class App extends Component {
 
   search() {
     const { draftMessage, accessToken } = this.state
-    fetch(`https://api.vimeo.com/videos?query=${draftMessage}&access_token=${accessToken.access_token}`)
+    fetch(`https://api.artsy.net:443/api/search?q=${draftMessage}`)
       .then(response => response.json())
-      .then(data => data.data)
+      .then(data => console.log(data))
       .then(payload => this.props.displaySearched(draftMessage, payload))
     browserHistory.push('/videocards')
   }

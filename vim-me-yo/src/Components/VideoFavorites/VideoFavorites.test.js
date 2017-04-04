@@ -12,5 +12,5 @@ it('renders without crashing', () => {
 
 it('should return all favorited vids', () => {
   const wrapper = mount(<VideoFavorites favoriteVideos={favoriteVideos} />);
-  expect(wrapper.find('#smiley').length).toEqual(9)
+  expect(wrapper.find('li').length).toEqual(9)
 });
