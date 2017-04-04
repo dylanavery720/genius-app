@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express()
+const cors = require('cors')
 
 let apiKey;
 
@@ -14,6 +15,7 @@ const oauth = {
   clientSecret: process.env.ARTSY_CLIENT_SECRET,
 }
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(express.static(path.resolve(__dirname, '..', 'build')));

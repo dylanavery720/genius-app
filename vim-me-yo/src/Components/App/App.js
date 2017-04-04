@@ -31,7 +31,16 @@ class App extends Component {
 
   search() {
     const { draftMessage, accessToken } = this.state
-    fetch(`https://api.artsy.net:443/api/search?q=${draftMessage}`)
+    fetch(`https://api.artsy.net/api/artists/pablo-picasso`, {
+      method: 'GET',
+      headers: {
+        'X-Xapp-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTE5MjUyODQsImlhdCI6MTQ5MTMyMDQ4NCwiYXVkIjoiNThlMTk0NDE5YzE4ZGI2NDZhZmVhZTg0IiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjU4ZTNiZWE0MTM5YjIxNzFlM2YzYzQ1MyJ9.tb4VDfIdsJslHaW59wyw3S87SC0ktBG7VhvVHleFtcs',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Methods': '*'
+      }
+    })
       .then(response => response.json())
       .then(data => console.log(data))
       .then(payload => this.props.displaySearched(draftMessage, payload))
