@@ -4,28 +4,40 @@ import VideoCard from '../VideoCard/VideoCard'
 class VideoCards extends Component {
 
   loadVideos() {
-    const shortArray = this.props.searchedVideos.splice(0, 6)
+    const { searchedVideos } = this.props
+    console.log(searchedVideos)
     return (
       <div>
-        {shortArray.map((video, i) => {
-          const str = video.uri
-          const newStr = str.slice(0, 6) + str.slice(7, str.length)
-          return <VideoCard
-                      classes="mdl-shadow--2dp"
-                      keys={i}
-                      src={`//player.vimeo.com${newStr}`} tags={video.tags} id={video.resource_key} favorite={e => this.props.addFavorite(e, video)}
-                 />
-        })}
+        <h1>{searchedVideos.name}</h1>
+        <h1>{searchedVideos.hometown}</h1>
+        <img src={searchedVideos.links.thumbnail.href} />
       </div>
     )
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    // return nextProps.user !== this.props.user
+    return nextProps.searchedVideos !== this.props.searchedVideos
+  }
 
   render() {
+    const { searchedVideos } = this.props
+
+    const displayArt = () => {
+      if(searchedVideos.length > 0) {
+         return (
+          <div>
+            <h1>{searchedVideos.name}</h1>
+            <h1>{searchedVideos.hometown}</h1>
+            <img src={searchedVideos.links.thumbnail.href} />
+          </div>
+         )
+      }
+    }
     return (
       <div>
         <ul className="mdl-card">
-          {this.loadVideos()}
+          {displayArt()}
         </ul>
       </div>
     )

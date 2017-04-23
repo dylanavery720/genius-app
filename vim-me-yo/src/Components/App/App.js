@@ -34,7 +34,7 @@ class App extends Component {
     fetch(`https://api.artsy.net/api/artists/pablo-picasso`, {
       method: 'GET',
       headers: {
-        'X-Xapp-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTE5MjUyODQsImlhdCI6MTQ5MTMyMDQ4NCwiYXVkIjoiNThlMTk0NDE5YzE4ZGI2NDZhZmVhZTg0IiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjU4ZTNiZWE0MTM5YjIxNzFlM2YzYzQ1MyJ9.tb4VDfIdsJslHaW59wyw3S87SC0ktBG7VhvVHleFtcs',
+        'X-Xapp-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTM1Njc3NDcsImlhdCI6MTQ5Mjk2Mjk0NywiYXVkIjoiNThlMTk0NDE5YzE4ZGI2NDZhZmVhZTg0IiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjU4ZmNjZTgzYTA5YTY3NzIyMmM0ZDYxMyJ9.Fstlsx1nyyjTydE_-I1gQkqtE1qufJ93OYYzXD86Zgc',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': '*',
@@ -42,8 +42,7 @@ class App extends Component {
       }
     })
       .then(response => response.json())
-      .then(data => console.log(data))
-      .then(payload => this.props.displaySearched(draftMessage, payload))
+      .then(payload => this.props.displaySearched(payload))
     browserHistory.push('/videocards')
   }
 

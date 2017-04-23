@@ -1,4 +1,4 @@
-export const displaySearched = (query, payload) => {
+export const displaySearched = (payload) => {
   return {
     type: 'DISPLAY_SEARCHED',
     payload,

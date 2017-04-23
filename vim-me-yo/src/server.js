@@ -20,13 +20,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-
-// app.get('/test', (request, response, next) => {
-//   const authUrl = `https://api.vimeo.com/oauth/authorize?client_id=${oauth.clientId}&response_type=code&redirect_uri=${oauth.redirectUri}&state=90059`
-//   response.redirect(authUrl)
-// })
-
-
 app.get('/test', (req, res, next) => {
   const options = {
     url: 'https://api.artsy.net/api/tokens/xapp_token',
