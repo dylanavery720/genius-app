@@ -1,16 +1,17 @@
 ## Project Name & Pitch
 
-Palatial Revimeo
+Turing Mod 3 Personal Project.
 
-An application used to filter data from Vimeo.com based videos, built with React, Redux, JavaScript, and CSS. User can favorite songs.
+An application used to filter data an API, built with React, Redux, JavaScript, Express and CSS. I made this so that I could get more familiar with OAuth. It was my crash course in what can and can't be done with Express, OAuth, and a typical API such as api/vimeo.com, api/instagram.com, api/genius.com, or api/marvel.com.
 
+I am currenty trying to implement a fine arts API into this codebase.
 ## Project Status
 
-This project is currently in development. Users can search for videos using Vimeo API, and display hash tags.
+This project is currently in development. It's set up for CRUD functionality with API calls to any API that uses OAuth. The OAuth part is a little convoluted, and misguided. But the server does send back an access token into React state which allows me to create search functionality. 
+
+I am currenty trying to implement a fine arts API into this codebase.
 
 ## Project Screen Shot(s)
-
-[Screen Shot](http://imgur.com/a/p5mVj)
 
 ## Installation and Setup Instructions
 
