@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import VideoCard from '../VideoCard/VideoCard'
+import ArtCard from '../ArtCard/ArtCard'
 
 class VideoFavorites extends Component {
 
   loadFavorites() {
+    const { favoriteVideos, addFavorite } = this.props
+    console.log(favoriteVideos)
     return (
       <div>
-        {this.props.favoriteVideos.map((video, i) => {
-          const str = video.uri
-          const newStr = str.slice(0, 6) + str.slice(7, str.length)
-          return <VideoCard classes="mdl-shadow--2dp" keys={i} src={`//player.vimeo.com${newStr}`} tags={video.tags} toggleC={true} favorite={e => this.props.addFavorite(e, video)} />
-        })}
+     {favoriteVideos.map((art, i)=> {
+          return <ArtCard key={i} src={art._links.thumbnail.href} title={art.title} favorite={addFavorite}/> 
+     })}
       </div>
     )
   }

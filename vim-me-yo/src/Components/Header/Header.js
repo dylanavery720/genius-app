@@ -1,7 +1,6 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import Button from '../Button/Button'
-import logo from '../../film-reel.png';
 
 const Header = (props) => {
   return (
@@ -11,14 +10,8 @@ const Header = (props) => {
       <div>
         <a onClick={props.logOut}>Log Out</a>
       </div>}
-      <img
-        src={logo}
-        className="App-logo"
-        alt="logo"
-        onClick={props.handleClick}
-      />
       <a onClick={props.handleClick} className="fave-link">Favorites</a>
-      <h1 onClick={props.handleHome}>Palatial Revimeo</h1>
+      <h1 onClick={props.handleHome}>Arc Ards</h1>
       <input className="mdl-textfield__input" onChange={props.updateSearch} />
       <Button
         id="search-butt"

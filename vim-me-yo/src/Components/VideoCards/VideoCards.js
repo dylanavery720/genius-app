@@ -1,31 +1,22 @@
 import React, { Component } from 'react';
-import VideoCard from '../VideoCard/VideoCard'
+import ArtCard from '../ArtCard/ArtCard'
 
 class VideoCards extends Component {
 
   loadVideos() {
-    const shortArray = this.props.searchedVideos.splice(0, 6)
+    const { searchedVideos, addFavorite } = this.props
     return (
-      <div>
-        {shortArray.map((video, i) => {
-          const str = video.uri
-          const newStr = str.slice(0, 6) + str.slice(7, str.length)
-          return <VideoCard
-                      classes="mdl-shadow--2dp"
-                      keys={i}
-                      src={`//player.vimeo.com${newStr}`} tags={video.tags} id={video.resource_key} favorite={e => this.props.addFavorite(e, video)}
-                 />
-        })}
-      </div>
+      <ArtCard src={searchedVideos._links.thumbnail.href} title={searchedVideos.title} favorite={e => this.props.addFavorite(e, searchedVideos)}/>
     )
   }
 
 
   render() {
+    const { searchedVideos } = this.props
     return (
       <div>
         <ul className="mdl-card">
-          {this.loadVideos()}
+          {searchedVideos.title && this.loadVideos()}
         </ul>
       </div>
     )

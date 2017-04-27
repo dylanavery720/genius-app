@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Pattaya|Atma');
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Proza+Libre');
 
 a {
   float: left;
@@ -6,7 +7,7 @@ a {
   font-size: 30px;
   margin-left: 20px;
   transition: 1s;
-  font-family: 'Pattaya', sans-serif;
+  font-family: 'Proza Libre', sans-serif;
   cursor: pointer;
 }
 
@@ -21,7 +22,7 @@ h3 {
 
 h2 {
   display: inline-block;
-  font-family: 'Pattaya', cursive;
+  font-family: 'Proza Libre', sans-serif;
   font-size: 24px;
 }
 
@@ -29,9 +30,9 @@ h1 {
   color: black;
   display: block;
   text-align: center;
-  font-family: 'Atma', cursive;
+  font-family: 'Proza Libre', sans-serif;
   font-size: 44px;
-  color: salmon;
+  color: #606060;
   margin: 15px 25px;
   cursor: pointer;
 }
@@ -50,35 +51,27 @@ li {
 
 .fave-link {
   float:right;
-  margin: 5px;
+  margin: 25px;
 }
 
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 20px;
-  margin-right: 50px;
-  float: right;
-  cursor: crosshair;
-}
-
 .App-header {
-  background-color: #222;
+  background-color: #F4F4F4;
   padding: 20px;
-  color: white;
+  color: #606060;
   top: 0;
   position: fixed;
   width: 100%;
 }
 
 .App-footer {
-  background-color: #222;
+  background-color: #F4F4F4;
   height: 50px;
   padding: 20px;
-  color: white;
+  color: #606060;
   bottom: 0;
   position: fixed;
   width: 100%;
@@ -87,11 +80,6 @@ li {
 .App-intro {
   font-size: large;
   color: black;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .mdl-textfield__input {
@@ -124,12 +112,17 @@ li {
 }
 
 .mdl-card__title-text {
-  color: salmon;
+  color: #606060;
   display: inline-block;;
 }
 
 #search-glass {
   display: none;
+}
+
+.thumbnail {
+  display: block;
+  margin: 10px auto;
 }
 
 @media screen and (max-width: 600px) {

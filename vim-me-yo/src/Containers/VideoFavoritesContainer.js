@@ -3,7 +3,7 @@ import { displayPopular } from '../Actions/index.js'
 import VideoFavorites from '../Components/VideoFavorites/VideoFavorites'
 
 const mapStateToProps = (state) => {
-  return { favoriteVideos: state.videos.favoriteVideos }
+  return { favoriteVideos: state.art.favoriteVideos }
 }
 
 const mapDispatchToProps = {

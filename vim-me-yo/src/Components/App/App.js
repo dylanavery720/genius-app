@@ -9,7 +9,7 @@ class App extends Component {
     super()
     this.state = {
       draftMessage: '',
-      accessToken: '',
+      accessToken: ''
     }
     this.search = this.search.bind(this)
     this.updateSearch = this.updateSearch.bind(this)
@@ -31,11 +31,19 @@ class App extends Component {
 
   search() {
     const { draftMessage, accessToken } = this.state
-    fetch(`https://api.artsy.net:443/api/search?q=${draftMessage}`)
+    fetch(`https://api.artsy.net:443/api/search?q=${draftMessage}&size=10&type=artist`, {
+      method: 'GET',
+      headers: {
+        'X-Xapp-Token': `${this.state.accessToken}`,
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Methods': '*'
+      }
+    })
       .then(response => response.json())
-      .then(data => console.log(data))
-      .then(payload => this.props.displaySearched(draftMessage, payload))
-    browserHistory.push('/videocards')
+      .then(payload => this.props.displaySearched(payload._embedded.results[0]))
+        browserHistory.push('/videocards')
   }
 
   updateSearch(e) {
