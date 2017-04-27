@@ -8,36 +8,20 @@ class VideoCards extends Component {
     console.log(searchedVideos)
     return (
       <div>
-        <h1>{searchedVideos.name}</h1>
-        <h1>{searchedVideos.hometown}</h1>
-        <img src={searchedVideos.links.thumbnail.href} />
+        <h1>{searchedVideos.title}</h1>
+        {/*<h1>{searchedVideos.hometown}</h1>*/}
+        <img src={searchedVideos._links.thumbnail.href} />
       </div>
     )
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    // return nextProps.user !== this.props.user
-    return nextProps.searchedVideos !== this.props.searchedVideos
-  }
 
   render() {
     const { searchedVideos } = this.props
-
-    const displayArt = () => {
-      if(searchedVideos.length > 0) {
-         return (
-          <div>
-            <h1>{searchedVideos.name}</h1>
-            <h1>{searchedVideos.hometown}</h1>
-            <img src={searchedVideos.links.thumbnail.href} />
-          </div>
-         )
-      }
-    }
     return (
       <div>
         <ul className="mdl-card">
-          {displayArt()}
+          {searchedVideos.title && this.loadVideos()}
         </ul>
       </div>
     )

@@ -9,7 +9,7 @@ class App extends Component {
     super()
     this.state = {
       draftMessage: '',
-      accessToken: '',
+      accessToken: ''
     }
     this.search = this.search.bind(this)
     this.updateSearch = this.updateSearch.bind(this)
@@ -31,10 +31,10 @@ class App extends Component {
 
   search() {
     const { draftMessage, accessToken } = this.state
-    fetch(`https://api.artsy.net/api/artists/pablo-picasso`, {
+    fetch(`https://api.artsy.net:443/api/search?q=${draftMessage}&size=10&type=artist`, {
       method: 'GET',
       headers: {
-        'X-Xapp-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTM1Njc3NDcsImlhdCI6MTQ5Mjk2Mjk0NywiYXVkIjoiNThlMTk0NDE5YzE4ZGI2NDZhZmVhZTg0IiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjU4ZmNjZTgzYTA5YTY3NzIyMmM0ZDYxMyJ9.Fstlsx1nyyjTydE_-I1gQkqtE1qufJ93OYYzXD86Zgc',
+        'X-Xapp-Token': `${this.state.accessToken}`,
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': '*',
@@ -42,8 +42,8 @@ class App extends Component {
       }
     })
       .then(response => response.json())
-      .then(payload => this.props.displaySearched(payload))
-    browserHistory.push('/videocards')
+      .then(payload => this.props.displaySearched(payload._embedded.results[0]))
+        browserHistory.push('/videocards')
   }
 
   updateSearch(e) {
