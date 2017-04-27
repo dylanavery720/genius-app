@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import VideoCard from '../VideoCard/VideoCard'
+import ArtCard from '../ArtCard/ArtCard'
 
 class VideoCards extends Component {
 
   loadVideos() {
-    const { searchedVideos } = this.props
-    console.log(searchedVideos)
+    const { searchedVideos, addFavorite } = this.props
     return (
-      <div>
-        <h1>{searchedVideos.title}</h1>
-        {/*<h1>{searchedVideos.hometown}</h1>*/}
-        <img src={searchedVideos._links.thumbnail.href} />
-      </div>
+      <ArtCard src={searchedVideos._links.thumbnail.href} title={searchedVideos.title} favorite={e => this.props.addFavorite(e, searchedVideos)}/>
     )
   }
 

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=IM+Fell+Double+Pica+SC|Lato');
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Proza+Libre');
 
 a {
   float: left;
@@ -6,7 +7,7 @@ a {
   font-size: 30px;
   margin-left: 20px;
   transition: 1s;
-  font-family: 'IM Fell Double Pica SC', serif;
+  font-family: 'Proza Libre', sans-serif;
   cursor: pointer;
 }
 
@@ -21,7 +22,7 @@ h3 {
 
 h2 {
   display: inline-block;
-  font-family: 'IM Fell Double Pica SC', serif;
+  font-family: 'Proza Libre', sans-serif;
   font-size: 24px;
 }
 
@@ -29,7 +30,7 @@ h1 {
   color: black;
   display: block;
   text-align: center;
-  font-family: 'IM Fell Double Pica SC', serif;
+  font-family: 'Proza Libre', sans-serif;
   font-size: 44px;
   color: #606060;
   margin: 15px 25px;
@@ -50,19 +51,11 @@ li {
 
 .fave-link {
   float:right;
-  margin: 5px;
+  margin: 25px;
 }
 
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 20px;
-  margin-right: 50px;
-  float: right;
-  cursor: crosshair;
 }
 
 .App-header {
@@ -87,11 +80,6 @@ li {
 .App-intro {
   font-size: large;
   color: black;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .mdl-textfield__input {
@@ -130,6 +118,11 @@ li {
 
 #search-glass {
   display: none;
+}
+
+.thumbnail {
+  display: block;
+  margin: 10px auto;
 }
 
 @media screen and (max-width: 600px) {

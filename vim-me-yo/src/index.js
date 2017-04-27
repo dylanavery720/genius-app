@@ -10,14 +10,14 @@ import AppContainer from './Containers/AppContainer'
 import VideoFavoritesContainer from './Containers/VideoFavoritesContainer'
 import './index.css';
 
-import videos from './Reducers/videos-reducer'
+import art from './Reducers/art'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  combineReducers({ videos }),
+  combineReducers({ art }),
   {
-    videos: {
+    art: {
       searchedVideos: [],
       favoriteVideos: [],
     },
