@@ -9,11 +9,12 @@ a {
   transition: 1s;
   font-family: 'Proza Libre', sans-serif;
   cursor: pointer;
+  color: #FF6B6B;
 }
 
 a:hover {
   transform: scale(1);
-  color: white;
+  color: #F2D7EE;
 }
 
 h3 {
@@ -27,12 +28,11 @@ h2 {
 }
 
 h1 {
-  color: black;
   display: block;
   text-align: center;
   font-family: 'Proza Libre', sans-serif;
   font-size: 44px;
-  color: #606060;
+  color: #292F36;
   margin: 15px 25px;
   cursor: pointer;
 }
@@ -59,19 +59,19 @@ li {
 }
 
 .App-header {
-  background-color: #F4F4F4;
+  background-color: #FFF;
   padding: 20px;
-  color: #606060;
+  color: #292F36;
   top: 0;
   position: fixed;
   width: 100%;
 }
 
 .App-footer {
-  background-color: #F4F4F4;
+  background-color: #FFF;
   height: 50px;
   padding: 20px;
-  color: #606060;
+  color: #292F36;
   bottom: 0;
   position: fixed;
   width: 100%;
@@ -79,12 +79,12 @@ li {
 
 .App-intro {
   font-size: large;
-  color: black;
+  color: #292F36;
 }
 
 .mdl-textfield__input {
-  border: 1px solid salmon;
-  border-bottom: 1px solid salmon;
+  border: 1px solid #FF6B6B;
+  border-bottom: 1px solid #FF6B6B;
   display: inline-block;
   font-size: 16px;
   font-family: "Helvetica","Arial",sans-serif;
@@ -97,7 +97,7 @@ li {
 }
 
 .mdl-button--icon {
-  color: black;
+  color: #F2D7EE;
   margin-bottom: 5px;
 }
 
@@ -108,11 +108,13 @@ li {
 .mdl-card {
   width: 100%;
   position: static;
-  background-color: #FFFCE3;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
 .mdl-card__title-text {
-  color: #606060;
+  color: #F2D7EE;
   display: inline-block;;
 }
 
@@ -123,6 +125,18 @@ li {
 .thumbnail {
   display: block;
   margin: 10px auto;
+}
+
+.cards {
+  background: black;
+  color: #F2D7EE;
+  height: 360px;
+  width: 320px;
+  margin: 0 auto;
+  padding: 20px;
+  display: inline-block;
+  overflow: hidden;
+  box-shadow: 1px 2px 2px rgba(0,0,0,.7);
 }
 
 @media screen and (max-width: 600px) {

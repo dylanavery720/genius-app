@@ -3,9 +3,9 @@ import Button from '../Button/Button'
 
 const ArtCard = (props) => {
   return (
-    <div>
+    <div className="cards">
       <h1 className="mdl-card__title-text">&nbsp; {props.title}</h1>
-      <img className="thumbnail" src={props.src} width="480" height="270" />
+      <img className="thumbnail" src={props.src} width="230" height="230" />
       {!props.toggleC && <button
         type="checkbox"
         id="smiley"
