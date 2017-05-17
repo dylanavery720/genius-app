@@ -6,7 +6,6 @@ export const displaySearched = (payload) => {
 }
 
 export const displaySecondary = (payload) => {
-  console.log(payload)
   return {
     type: 'DISPLAY_SECONDARY',
     payload,

@@ -5,7 +5,6 @@ class VideoCards extends Component {
 
   loadVideos() {
     const { searchedVideos, addFavorite, secondary } = this.props
-    console.log(secondary)
     return (
       <div>
         <ArtCard src={searchedVideos._links.thumbnail.href} title={searchedVideos.title} favorite={e => this.props.addFavorite(e, searchedVideos)} />

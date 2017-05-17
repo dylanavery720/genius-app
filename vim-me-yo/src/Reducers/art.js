@@ -3,7 +3,6 @@ const art = (state = {}, action) => {
     case 'DISPLAY_SEARCHED':
       return Object.assign({}, state, { searchedVideos: action.payload })
     case 'DISPLAY_SECONDARY':
-      console.log(action)
       return Object.assign({}, state, { secondary: action.payload })
     case 'ADD_FAVE':
       const favoriteVideos = [action.video, ...state.favoriteVideos]

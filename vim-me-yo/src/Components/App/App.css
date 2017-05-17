@@ -132,7 +132,7 @@ li {
   color: #F2D7EE;
   height: 360px;
   width: 320px;
-  margin: 0 auto;
+  margin-right: 15px;
   padding: 20px;
   display: inline-block;
   overflow: hidden;
