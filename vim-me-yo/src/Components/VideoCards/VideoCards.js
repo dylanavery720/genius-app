@@ -4,19 +4,23 @@ import ArtCard from '../ArtCard/ArtCard'
 class VideoCards extends Component {
 
   loadVideos() {
-    const { searchedVideos, addFavorite } = this.props
+    const { searchedVideos, addFavorite, secondary } = this.props
+    console.log(secondary)
     return (
-      <ArtCard src={searchedVideos._links.thumbnail.href} title={searchedVideos.title} favorite={e => this.props.addFavorite(e, searchedVideos)}/>
+      <div>
+        <ArtCard src={searchedVideos._links.thumbnail.href} title={searchedVideos.title} favorite={e => this.props.addFavorite(e, searchedVideos)} />
+        <ArtCard src={secondary._links.thumbnail.href} title={secondary.name} favorite={e => this.props.addFavorite(e, searchedVideos)} />
+      </div>
     )
   }
 
 
   render() {
-    const { searchedVideos } = this.props
+    const { searchedVideos, secondary } = this.props
     return (
       <div>
         <ul className="mdl-card">
-          {searchedVideos.title && this.loadVideos()}
+          {secondary._links && this.loadVideos()}
         </ul>
       </div>
     )
@@ -27,6 +31,7 @@ VideoCards.propTypes = {
   searchedVideos: React.PropTypes.node,
   // favoriteVideos: React.PropTypes.node,
   addFavorite: React.PropTypes.func,
+  secondary: React.PropTypes.node,
 }
 
 export default VideoCards;

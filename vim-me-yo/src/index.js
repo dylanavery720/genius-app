@@ -20,6 +20,7 @@ const store = createStore(
     art: {
       searchedVideos: [],
       favoriteVideos: [],
+      secondary: [],
     },
   },
   composeEnhancers(applyMiddleware(thunk)),

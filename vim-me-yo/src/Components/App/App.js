@@ -4,6 +4,7 @@ import '../../Reset.css';
 import './App.css';
 import Header from '../Header/Header';
 
+
 class App extends Component {
   constructor() {
     super()
@@ -43,7 +44,19 @@ class App extends Component {
     })
       .then(response => response.json())
       .then(payload => this.props.displaySearched(payload._embedded.results[0]))
-        browserHistory.push('/videocards')
+      .then(data => fetch(`https://api.artsy.net:443/api/artworks?artist_id=${data.payload._links.self.href.substring(34)}`, {
+        method: 'GET',
+        headers: {
+          'X-Xapp-Token': `${this.state.accessToken}`,
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': '*',
+          'Access-Control-Allow-Methods': '*'
+        }
+      }))
+      .then(response => response.json())
+      .then(payload => this.props.displaySecondary(payload._embedded.artworks[0]))
+        browserHistory.push('/videocards')    
   }
 
   updateSearch(e) {

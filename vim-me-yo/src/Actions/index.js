@@ -5,6 +5,14 @@ export const displaySearched = (payload) => {
   }
 }
 
+export const displaySecondary = (payload) => {
+  console.log(payload)
+  return {
+    type: 'DISPLAY_SECONDARY',
+    payload,
+  }
+}
+
 export const addFavorite = (e, video) => {
   return {
     type: 'ADD_FAVE',
